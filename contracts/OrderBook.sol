@@ -2,23 +2,33 @@
 pragma solidity ^0.8.19;
 
 import "./Types.sol";
-import "./CounterWT.sol";
+import "./OrderExecutor.sol";
 import "./OpsTaskCreator.sol";
 
+struct OrderDatas {
+    address user;
+    uint256 price;
+    address fromToken;
+    address toToken;
+    bytes32 orderId;
+}
+
 contract OrderBook is OpsTaskCreator {
-    mapping (bytes32 => address) public userOrders; // returns array of orderIds/tasksIds
-    //IOps public immutable ops; // Gelato Automate proxy
+    mapping (uint => OrderDatas) public orders; // returns order data
+    uint orderNonce;
 
     address public admin;
-    CounterWT public counter;
+    OrderExecutor public orderExecutor;
 
     constructor() OpsTaskCreator(0xc1C6805B857Bef1f412519C4A842522431aFed39, address(this)) {
+        orderExecutor = new OrderExecutor(address(ops), 0x08f6dDE16166F06e1d486749452dc3A44f175456);
         admin = msg.sender;
-        counter = new CounterWT(address(ops), 0x08f6dDE16166F06e1d486749452dc3A44f175456);
+        orderNonce = 0;
     }
 
-    function createOrder() external returns (bytes32) {
-        bytes memory execData = abi.encodeCall(counter.increaseCount, (1));
+    function createOrder(uint price, address fromToken, address toToken) external returns (uint) {
+        
+        bytes memory execData = abi.encodeCall(orderExecutor.executeOrder, (orderNonce));
 
         ModuleData memory moduleData = ModuleData({
             modules: new Module[](2),
@@ -27,36 +37,37 @@ contract OrderBook is OpsTaskCreator {
         moduleData.modules[0] = Module.RESOLVER;
         moduleData.modules[1] = Module.SINGLE_EXEC;
 
-        moduleData.args[0] = _resolverModuleArg(address(counter), abi.encodeCall(counter.checker, ()));
+        moduleData.args[0] = _resolverModuleArg(address(orderExecutor), abi.encodeCall(orderExecutor.checker, orderNonce));
         moduleData.args[1] = _singleExecModuleArg();
 
         bytes32 orderId = ops.createTask(
-            address(counter), // contract to execute
+            address(orderExecutor), // contract to execute
             execData, // function to execute
             moduleData,
             address(0)
         );
 
-        userOrders[orderId] = msg.sender;
+        orderNonce++;
+        orders[orderNonce] = OrderDatas(msg.sender, price, fromToken, toToken, orderId);
 
-        return orderId;
+        return orderNonce;
     }
 
-    function cancelOrder(bytes32 _orderId) external {
+    function cancelOrder(uint _orderNonce) external {
         require(
-            msg.sender == admin || userOrders[_orderId] == msg.sender,
+            msg.sender == admin || orders[_orderNonce].user == msg.sender,
             "Not allowed to cancel this order"
         );
-        ops.cancelTask(_orderId);
+        ops.cancelTask(orders[_orderNonce].orderId);
     }
 
-    // function to return counter address in order to check the txs
-    function getCounterAddress() public view returns (address) {
-        return address(counter);
+    // function to return executor address in order to check the txs
+    function getExecutorAddress() public view returns (address) {
+        return address(orderExecutor);
     }
 
-    function toggleCounter() public {
-        counter.togglePrice();
+    function toggleExecutorCondition() public {
+        orderExecutor.togglePrice();
     }
 
 }
