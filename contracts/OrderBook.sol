@@ -11,6 +11,7 @@ struct OrderDatas {
     address fromToken;
     address toToken;
     bytes32 orderId;
+    bool isExecuted;
 }
 
 contract OrderBook is OpsTaskCreator {
@@ -48,7 +49,7 @@ contract OrderBook is OpsTaskCreator {
         );
 
         orderNonce++;
-        orders[orderNonce] = OrderDatas(msg.sender, price, fromToken, toToken, orderId);
+        orders[orderNonce] = OrderDatas(msg.sender, price, fromToken, toToken, orderId, false);
 
         return orderNonce;
     }
@@ -66,8 +67,21 @@ contract OrderBook is OpsTaskCreator {
         return address(orderExecutor);
     }
 
-    function toggleExecutorCondition() public {
-        orderExecutor.togglePrice();
+    function setPrice(uint price) public {
+        orderExecutor.setPrice(price);
+    }
+
+    
+    function setExecuted(uint orderNonce) public {
+        require(msg.sender == address(orderExecutor), "Only the executor can set the order as executed");
+        orders[orderNonce].isExecuted = true;
+    }
+    
+
+    
+
+    function getOrder(uint orderNonce) public view returns (OrderDatas memory) {
+        return orders[orderNonce];
     }
 
 }
