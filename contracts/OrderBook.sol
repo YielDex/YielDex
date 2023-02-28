@@ -86,15 +86,6 @@ contract OrderBook is OpsTaskCreator {
         return orders[orderNonce];
     }
 
-    function getOrderId(uint orderNonce) public view returns (bytes32 orderId) {
-        return orders[orderNonce].orderId;
-    }
-
-    function withdrawFunds() public {
-        orderExecutor.withdrawFunds();
-        _transfer(address(this).balance);
-    }
-
 }
 
 

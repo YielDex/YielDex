@@ -35,10 +35,6 @@ contract OrderExecutor is OpsReady {
         execPayload = abi.encodeCall(OrderExecutor.executeOrder, orderNonce); // The function that you want to call on the contract
     }
 
-    function withdrawFunds() public {
-        orderBook.send(address(this).balance);
-    }
-
 }
 
 
