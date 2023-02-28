@@ -33,17 +33,15 @@ contract OrderBook is OpsTaskCreator {
         bytes memory execData = abi.encodeCall(orderExecutor.executeOrder, (orderNonce));
 
         ModuleData memory moduleData = ModuleData({
-            modules: new Module[](3),
-            args: new bytes[](3)
+            modules: new Module[](2),
+            args: new bytes[](2)
         });
 
         moduleData.modules[0] = Module.RESOLVER;
-        moduleData.modules[1] = Module.PROXY;
-        moduleData.modules[2] = Module.SINGLE_EXEC;
+        moduleData.modules[1] = Module.SINGLE_EXEC;
 
         moduleData.args[0] = _resolverModuleArg(address(orderExecutor), abi.encodeCall(orderExecutor.checker, (orderNonce)));
-        moduleData.args[1] = _proxyModuleArg();
-        moduleData.args[2] = _singleExecModuleArg();
+        moduleData.args[1] = _singleExecModuleArg();
 
         // Faulty
         bytes32 orderId = ops.createTask(
