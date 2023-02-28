@@ -7,6 +7,8 @@ import "./OrderBook.sol";
 contract OrderExecutor is OpsReady {
     uint price;
     OrderBook public orderBook;
+    event OrderDone(string);
+
 
     constructor(address _ops, address _taskCreator) OpsReady(_ops, _taskCreator) {
         price = 100; // arbitrary price
@@ -22,6 +24,7 @@ contract OrderExecutor is OpsReady {
     function executeOrder(uint orderNonce) external /*onlyDedicatedMsgSender*/ {
         // execute order with orderNonce here
         orderBook.setExecuted(orderNonce);
+        emit OrderDone("order executed");
         // 
         (uint256 fee, address feeToken) = _getFeeDetails();
         _transfer(fee, feeToken);
@@ -33,7 +36,7 @@ contract OrderExecutor is OpsReady {
     }
 
     function checker(uint orderNonce) external view returns (bool canExec, bytes memory execPayload) {
-        canExec = orderBook.getOrder(orderNonce).price <= price; // The condition that needs to be true for the task to be executed, you can filter the condition with the orderId
+        canExec = orderBook.getOrder(orderNonce).price == price; // The condition that needs to be true for the task to be executed, you can filter the condition with the orderId
         execPayload = abi.encodeCall(OrderExecutor.executeOrder, orderNonce); // The function that you want to call on the contract
     }
 
