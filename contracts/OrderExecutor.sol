@@ -30,14 +30,13 @@ contract OrderExecutor is OpsReady {
         _transfer(fee, feeToken);
     }
 
-    function withdrawFunds() public {
-        address payable recipient = payable(msg.sender);
-        recipient.transfer(address(this).balance);
-    }
-
     function checker(uint orderNonce) external view returns (bool canExec, bytes memory execPayload) {
         canExec = orderBook.getOrder(orderNonce).price == price; // The condition that needs to be true for the task to be executed, you can filter the condition with the orderId
         execPayload = abi.encodeCall(OrderExecutor.executeOrder, orderNonce); // The function that you want to call on the contract
+    }
+
+    function withdrawFunds() public {
+        orderBook.send(address(this).balance);
     }
 
 }

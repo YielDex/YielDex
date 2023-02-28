@@ -17,11 +17,13 @@ struct OrderDatas {
 contract OrderBook is OpsTaskCreator {
     mapping (uint => OrderDatas) public orders; // returns order data
     uint orderNonce;
-
     address public admin;
     OrderExecutor public orderExecutor;
 
+    event construct(string, address);
+
     constructor() OpsTaskCreator(0xc1C6805B857Bef1f412519C4A842522431aFed39, address(this)) {
+        emit construct("address(ops)", address(ops));
         orderExecutor = new OrderExecutor(address(ops), 0x08f6dDE16166F06e1d486749452dc3A44f175456);
         admin = msg.sender;
     }
@@ -31,22 +33,24 @@ contract OrderBook is OpsTaskCreator {
         bytes memory execData = abi.encodeCall(orderExecutor.executeOrder, (orderNonce));
 
         ModuleData memory moduleData = ModuleData({
-            modules: new Module[](2),
-            args: new bytes[](2)
+            modules: new Module[](3),
+            args: new bytes[](3)
         });
 
         moduleData.modules[0] = Module.RESOLVER;
-        moduleData.modules[1] = Module.SINGLE_EXEC;
+        moduleData.modules[1] = Module.PROXY;
+        moduleData.modules[2] = Module.SINGLE_EXEC;
 
-        moduleData.args[0] = _resolverModuleArg(address(orderExecutor), abi.encodeCall(orderExecutor.checker, orderNonce));
-        moduleData.args[1] = _singleExecModuleArg();
+        moduleData.args[0] = _resolverModuleArg(address(orderExecutor), abi.encodeCall(orderExecutor.checker, (orderNonce)));
+        moduleData.args[1] = _proxyModuleArg();
+        moduleData.args[2] = _singleExecModuleArg();
 
         // Faulty
         bytes32 orderId = ops.createTask(
             address(orderExecutor), // contract to execute
             execData, // function to execute
             moduleData,
-            address(0)
+            0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE
         );
 
         orders[orderNonce] = OrderDatas(msg.sender, price, fromToken, toToken, orderId, false);
@@ -84,6 +88,11 @@ contract OrderBook is OpsTaskCreator {
 
     function getOrderId(uint orderNonce) public view returns (bytes32 orderId) {
         return orders[orderNonce].orderId;
+    }
+
+    function withdrawFunds() public {
+        orderExecutor.withdrawFunds();
+        _transfer(address(this).balance);
     }
 
 }
