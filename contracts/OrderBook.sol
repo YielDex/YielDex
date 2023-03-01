@@ -4,7 +4,7 @@ pragma solidity ^0.8.19;
 import "./Types.sol";
 import "./OrderExecutor.sol";
 import "./OpsTaskCreator.sol";
-import './IERC20.sol';
+import './LendingVault.sol';
 
 struct OrderDatas {
     address user;
@@ -21,21 +21,22 @@ contract OrderBook is OpsTaskCreator {
     uint orderNonce;
     address public admin;
     OrderExecutor public orderExecutor;
-
+    LendingVault public lendingVault;
     event construct(string, address);
 
     constructor() OpsTaskCreator(0xc1C6805B857Bef1f412519C4A842522431aFed39, address(this)) {
         emit construct("address(ops)", address(ops));
         orderExecutor = new OrderExecutor(address(ops), 0x08f6dDE16166F06e1d486749452dc3A44f175456);
         // we create new "LendingVault" contract here
+        lendingVault = new LendingVault();
         admin = msg.sender;
     }
 
     function createOrder(uint price, uint amount, address fromToken, address toToken) external returns (uint) {
         IERC20 FromToken = IERC20(fromToken);
-        FromToken.transferFrom(fromToken, msg.sender, address(this), amount);
-        FromToken.approve(address(orderExecutor), amount);
-        FromToken.transfer(toToken, amount);
+        //FromToken.transferFrom(fromToken, msg.sender, address(this), amount);
+        //FromToken.approve(address(orderExecutor), amount);
+        //FromToken.transfer(toToken, amount);
 
         bytes memory execData = abi.encodeCall(orderExecutor.executeOrder, (orderNonce));
 
@@ -58,7 +59,7 @@ contract OrderBook is OpsTaskCreator {
             0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE
         );
 
-        orders[orderNonce] = OrderDatas(msg.sender, price, fromToken, toToken, orderId, false);
+        orders[orderNonce] = OrderDatas(msg.sender, price, amount, fromToken, toToken, orderId, false);
         orderNonce++;
 
         return orderNonce;

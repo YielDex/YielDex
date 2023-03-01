@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0
-pragma solidity 0.6.6;
+pragma solidity 0.8.19;
 
 /**
  * @dev Interface of the ERC20 standard as defined in the EIP.
  */
-interface IERC20 {
+interface IERC20Bis {
   /**
    * @dev Returns the amount of tokens in existence.
    */
