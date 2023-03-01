@@ -9,7 +9,6 @@ contract OrderExecutor is OpsReady {
     OrderBook public orderBook;
     event OrderDone(string);
 
-
     constructor(address _ops, address _taskCreator) OpsReady(_ops, _taskCreator) {
         price = 100; // arbitrary price
         orderBook = OrderBook(msg.sender);
