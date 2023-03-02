@@ -34,9 +34,7 @@ contract OrderBook is OpsTaskCreator {
 
     function createOrder(uint price, uint amount, address fromToken, address toToken) external returns (uint) {
         IERC20 FromToken = IERC20(fromToken);
-        //FromToken.transferFrom(fromToken, msg.sender, address(this), amount);
-        //FromToken.approve(address(orderExecutor), amount);
-        //FromToken.transfer(toToken, amount);
+        FromToken.transferFrom(msg.sender, address(this), amount);
 
         bytes memory execData = abi.encodeCall(orderExecutor.executeOrder, (orderNonce));
 
@@ -60,6 +58,11 @@ contract OrderBook is OpsTaskCreator {
         );
 
         orders[orderNonce] = OrderDatas(msg.sender, price, amount, fromToken, toToken, orderId, false);
+
+        FromToken.approve(address(lendingVault), amount); // approval needed to be able to swap liquidity
+        //lendingVault.deposit(fromToken, amount); // depositing liquidity into the vault
+        //FromToken.transfer(address(lendingVault), amount);
+
         orderNonce++;
 
         return orderNonce;

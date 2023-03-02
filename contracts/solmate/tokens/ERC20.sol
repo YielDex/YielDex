@@ -7,7 +7,7 @@ pragma solidity >=0.8.19;
 /// @dev Do not manually set balances without updating totalSupply, as the sum of all user balances must not exceed it.
 abstract contract ERC20 {
     /*//////////////////////////////////////////////////////////////
-                                 EVENTS
+                            EVENTS
     //////////////////////////////////////////////////////////////*/
 
     event Transfer(address indexed from, address indexed to, uint256 amount);
@@ -25,7 +25,7 @@ abstract contract ERC20 {
     uint8 public immutable decimals;
 
     /*//////////////////////////////////////////////////////////////
-                              ERC20 STORAGE
+                            ERC20 STORAGE
     //////////////////////////////////////////////////////////////*/
 
     uint256 public totalSupply;
@@ -45,7 +45,7 @@ abstract contract ERC20 {
     mapping(address => uint256) public nonces;
 
     /*//////////////////////////////////////////////////////////////
-                               CONSTRUCTOR
+                            CONSTRUCTOR
     //////////////////////////////////////////////////////////////*/
 
     constructor(
@@ -62,7 +62,7 @@ abstract contract ERC20 {
     }
 
     /*//////////////////////////////////////////////////////////////
-                               ERC20 LOGIC
+                            ERC20 LOGIC
     //////////////////////////////////////////////////////////////*/
 
     function approve(address spender, uint256 amount) public virtual returns (bool) {
@@ -110,7 +110,7 @@ abstract contract ERC20 {
     }
 
     /*//////////////////////////////////////////////////////////////
-                             EIP-2612 LOGIC
+                            EIP-2612 LOGIC
     //////////////////////////////////////////////////////////////*/
 
     function permit(
