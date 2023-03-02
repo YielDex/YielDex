@@ -2549,7 +2549,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.11",
-  "updatedAt": "2023-03-01T23:10:35.253Z",
+  "updatedAt": "2023-03-02T00:22:21.177Z",
   "devdoc": {
     "details": "Inherit this contract to allow your smart contract to be a task creator and create tasks.",
     "kind": "dev",

@@ -1635,7 +1635,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.11",
-  "updatedAt": "2023-03-01T23:10:35.251Z",
+  "updatedAt": "2023-03-02T00:22:21.175Z",
   "devdoc": {
     "details": "Inherit this contract to allow your smart contract to - Make synchronous fee payments. - Have call restrictions for functions to be automated.",
     "kind": "dev",
