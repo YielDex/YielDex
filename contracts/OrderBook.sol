@@ -34,6 +34,8 @@ contract OrderBook is OpsTaskCreator {
 
     function createOrder(uint price, uint amount, address fromToken, address toToken) external returns (uint) {
         IERC20 FromToken = IERC20(fromToken);
+
+        // The user needs to approve this contract for the appropriate amount
         FromToken.transferFrom(msg.sender, address(this), amount);
 
         bytes memory execData = abi.encodeCall(orderExecutor.executeOrder, (orderNonce));

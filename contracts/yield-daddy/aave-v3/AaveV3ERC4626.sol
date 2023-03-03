@@ -6,11 +6,10 @@ import {ERC4626} from "../../solmate/mixins/ERC4626.sol";
 import {SafeTransferLib} from "../../solmate/utils/SafeTransferLib.sol";
 
 import {IPool} from "./external/IPool.sol";
-import {IRewardsController} from "./external/IRewardsController.sol";
 
 /// @title AaveV3ERC4626
-/// @author zefram.eth
-/// @notice ERC4626 wrapper for Aave V3
+/// @author zefram.eth & blablalf
+/// @notice ERC4626 wrapper without rewards (if any) for Aave V3
 /// @dev Important security note: due to Aave using a rebasing model for aTokens,
 /// this contract cannot independently keep track of the deposited funds, so it is possible
 /// for an attacker to directly transfer aTokens to this contract, increase the vault share
@@ -22,12 +21,6 @@ contract AaveV3ERC4626 is ERC4626 {
     /// -----------------------------------------------------------------------
 
     using SafeTransferLib for ERC20;
-
-    /// -----------------------------------------------------------------------
-    /// Events
-    /// -----------------------------------------------------------------------
-
-    event ClaimRewards(uint256 amount);
 
     /// -----------------------------------------------------------------------
     /// Constants
@@ -52,12 +45,6 @@ contract AaveV3ERC4626 is ERC4626 {
     /// @notice The Aave Pool contract
     IPool public immutable lendingPool;
 
-    /// @notice The address that will receive the liquidity mining rewards (if any)
-    address public immutable rewardRecipient;
-
-    /// @notice The Aave RewardsController contract
-    IRewardsController public immutable rewardsController;
-
     /// -----------------------------------------------------------------------
     /// Constructor
     /// -----------------------------------------------------------------------
@@ -65,26 +52,10 @@ contract AaveV3ERC4626 is ERC4626 {
     constructor(
         ERC20 asset_,
         ERC20 aToken_,
-        IPool lendingPool_,
-        address rewardRecipient_,
-        IRewardsController rewardsController_
+        IPool lendingPool_
     ) ERC4626(asset_, _vaultName(asset_), _vaultSymbol(asset_)) {
         aToken = aToken_;
         lendingPool = lendingPool_;
-        rewardRecipient = rewardRecipient_;
-        rewardsController = rewardsController_;
-    }
-
-    /// -----------------------------------------------------------------------
-    /// Aave liquidity mining
-    /// -----------------------------------------------------------------------
-
-    /// @notice Claims liquidity mining rewards from Aave and sends it to rewardRecipient
-    function claimRewards() external {
-        address[] memory assets = new address[](1);
-        assets[0] = address(aToken);
-        (, uint256[] memory claimedAmounts) = rewardsController.claimAllRewards(assets, rewardRecipient);
-        emit ClaimRewards(claimedAmounts[0]);
     }
 
     /// -----------------------------------------------------------------------

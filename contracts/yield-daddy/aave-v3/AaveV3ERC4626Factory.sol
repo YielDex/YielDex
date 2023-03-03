@@ -7,11 +7,10 @@ import {ERC4626} from "../../solmate/mixins/ERC4626.sol";
 import {IPool} from "./external/IPool.sol";
 import {AaveV3ERC4626} from "./AaveV3ERC4626.sol";
 import {ERC4626Factory} from "../base/ERC4626Factory.sol";
-import {IRewardsController} from "./external/IRewardsController.sol";
 
 /// @title AaveV3ERC4626Factory
-/// @author zefram.eth
-/// @notice Factory for creating AaveV3ERC4626 contracts
+/// @author zefram.eth & blablalf
+/// @notice Factory for creating AaveV3ERC4626 contracts without rewards (if any)
 contract AaveV3ERC4626Factory is ERC4626Factory {
     /// -----------------------------------------------------------------------
     /// Errors
@@ -24,23 +23,15 @@ contract AaveV3ERC4626Factory is ERC4626Factory {
     /// Immutable params
     /// -----------------------------------------------------------------------
 
-    /// @notice The Aave Pool contract
+    /// @notice The Aave Pool ceontract
     IPool public immutable lendingPool;
-
-    /// @notice The address that will receive the liquidity mining rewards (if any)
-    address public immutable rewardRecipient;
-
-    /// @notice The Aave RewardsController contract
-    IRewardsController public immutable rewardsController;
 
     /// -----------------------------------------------------------------------
     /// Constructor
     /// -----------------------------------------------------------------------
 
-    constructor(IPool lendingPool_, address rewardRecipient_, IRewardsController rewardsController_) {
+    constructor(IPool lendingPool_) {
         lendingPool = lendingPool_;
-        rewardRecipient = rewardRecipient_;
-        rewardsController = rewardsController_;
     }
 
     /// -----------------------------------------------------------------------
@@ -56,7 +47,7 @@ contract AaveV3ERC4626Factory is ERC4626Factory {
         }
 
         vault =
-        new AaveV3ERC4626{salt: bytes32(0)}(asset, ERC20(aTokenAddress), lendingPool, rewardRecipient, rewardsController);
+        new AaveV3ERC4626{salt: bytes32(0)}(asset, ERC20(aTokenAddress), lendingPool);
 
         emit CreateERC4626(asset, vault);
     }
@@ -73,7 +64,7 @@ contract AaveV3ERC4626Factory is ERC4626Factory {
                         // Deployment bytecode:
                         type(AaveV3ERC4626).creationCode,
                         // Constructor arguments:
-                        abi.encode(asset, ERC20(aTokenAddress), lendingPool, rewardRecipient, rewardsController)
+                        abi.encode(asset, ERC20(aTokenAddress), lendingPool)
                     )
                 )
             )
