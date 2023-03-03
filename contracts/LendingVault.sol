@@ -24,7 +24,9 @@ contract LendingVault {
         erc4626s[usdcERC20] = aaveFactory.createERC4626(usdcERC20);
     }
 
-    function deposit(uint256 _amount) external {
+    function deposit(address tokenAddress, uint256 _amount, address _receiver) external {
+        ERC20(tokenAddress).approve(address(erc4626s[ERC20(tokenAddress)]), _amount);
+        erc4626s[ERC20(tokenAddress)].deposit(_amount, _receiver);
         //aaveFactory.createERC4626(address(this), _amount);
     }
 

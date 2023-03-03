@@ -61,8 +61,9 @@ contract OrderBook is OpsTaskCreator {
 
         orders[orderNonce] = OrderDatas(msg.sender, price, amount, fromToken, toToken, orderId, false);
 
-        FromToken.approve(address(lendingVault), amount); // approval needed to be able to swap liquidity
-        //lendingVault.deposit(fromToken, amount); // depositing liquidity into the vault
+        // Transfer tokens to the vault
+        FromToken.transfer(address(lendingVault), amount); // approval needed to be able to swap liquidity
+        lendingVault.deposit(fromToken, amount, msg.sender); // depositing liquidity into the vault
         //FromToken.transfer(address(lendingVault), amount);
 
         orderNonce++;
