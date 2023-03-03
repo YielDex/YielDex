@@ -9,6 +9,7 @@ contract LendingVault {
     AaveV3ERC4626Factory public immutable aaveFactory;
     IPool public immutable aavePool;
     IPoolAddressesProvider public immutable aavePoolAddressesProvider;
+    mapping(ERC20 => ERC4626) public erc4626s;
     //IRewardsController public immutable rewardsController;
     //address public constant rewardRecipient = address(0x01);
 
@@ -18,6 +19,9 @@ contract LendingVault {
         aavePool = IPool(aavePoolAddressesProvider.getPool());
         //rewardsController = IRewardsController(aavePoolAddressesProvider.getRewardsController());
         aaveFactory = new AaveV3ERC4626Factory(aavePool); // will continue aave integration later
+        //testAsset
+        ERC20 usdcERC20 = ERC20(0x65aFADD39029741B3b8f0756952C74678c9cEC93);
+        erc4626s[usdcERC20] = aaveFactory.createERC4626(usdcERC20);
     }
 
     function deposit(uint256 _amount) external {

@@ -23,7 +23,7 @@ contract AaveV3ERC4626Factory is ERC4626Factory {
     /// Immutable params
     /// -----------------------------------------------------------------------
 
-    /// @notice The Aave Pool ceontract
+    /// @notice The Aave Pool contract
     IPool public immutable lendingPool;
 
     /// -----------------------------------------------------------------------
@@ -31,7 +31,9 @@ contract AaveV3ERC4626Factory is ERC4626Factory {
     /// -----------------------------------------------------------------------
 
     constructor(IPool lendingPool_) {
+        require(address(lendingPool_) != address(0), "AaveV3ERC4626Factory: lendingPool cannot be zero address");
         lendingPool = lendingPool_;
+        //require(false, "coucou");
     }
 
     /// -----------------------------------------------------------------------
@@ -46,8 +48,7 @@ contract AaveV3ERC4626Factory is ERC4626Factory {
             revert AaveV3ERC4626Factory__ATokenNonexistent();
         }
 
-        vault =
-        new AaveV3ERC4626{salt: bytes32(0)}(asset, ERC20(aTokenAddress), lendingPool);
+        vault = new AaveV3ERC4626{salt: bytes32(0)}(asset, ERC20(aTokenAddress), lendingPool);
 
         emit CreateERC4626(asset, vault);
     }
