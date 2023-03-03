@@ -23,6 +23,7 @@ contract OrderBook is OpsTaskCreator {
     OrderExecutor public orderExecutor;
     LendingVault public lendingVault;
     event construct(string, address);
+    event orderCreated(string, uint256);
 
     constructor() OpsTaskCreator(0xc1C6805B857Bef1f412519C4A842522431aFed39, address(this)) {
         emit construct("address(ops)", address(ops));
@@ -67,6 +68,8 @@ contract OrderBook is OpsTaskCreator {
         //FromToken.transfer(address(lendingVault), amount);
 
         orderNonce++;
+
+        emit orderCreated("orderNonce", orderNonce);
 
         return orderNonce;
     }
