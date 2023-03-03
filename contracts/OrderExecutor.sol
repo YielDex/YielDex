@@ -7,7 +7,7 @@ import "./OrderBook.sol";
 contract OrderExecutor is OpsReady {
     uint price;
     OrderBook public orderBook;
-    event OrderDone(string);
+    event OrderDone(string, uint256);
 
     constructor(address _ops, address _taskCreator) OpsReady(_ops, _taskCreator) {
         price = 100; // arbitrary price
@@ -22,8 +22,9 @@ contract OrderExecutor is OpsReady {
 
     function executeOrder(uint orderNonce) external /*onlyDedicatedMsgSender*/ {
         // execute order with orderNonce here
+        //orderBook.closeYieldStrategy(orderNonce);
         orderBook.setExecuted(orderNonce);
-        emit OrderDone("order executed");
+        emit OrderDone("order_executed", orderNonce);
         // 
         (uint256 fee, address feeToken) = _getFeeDetails();
         _transfer(fee, feeToken);
@@ -37,5 +38,3 @@ contract OrderExecutor is OpsReady {
     }
 
 }
-
-

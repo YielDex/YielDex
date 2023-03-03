@@ -30,4 +30,8 @@ contract LendingVault {
         //aaveFactory.createERC4626(address(this), _amount);
     }
 
+    function withdraw(address tokenAddress, uint256 _amount, address _receiver) external {
+        erc4626s[ERC20(tokenAddress)].withdraw(_amount, _receiver, address(this));
+    }
+
 }
