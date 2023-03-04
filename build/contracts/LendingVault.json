@@ -1203,7 +1203,7 @@
                 }
               ]
             },
-            "name": "convert_t_contract$_IPool_$4087_to_t_address",
+            "name": "convert_t_contract$_IPool_$4103_to_t_address",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -1245,7 +1245,7 @@
                           }
                         ],
                         "functionName": {
-                          "name": "convert_t_contract$_IPool_$4087_to_t_address",
+                          "name": "convert_t_contract$_IPool_$4103_to_t_address",
                           "nodeType": "YulIdentifier",
                           "src": "2308:44:20"
                         },
@@ -1266,7 +1266,7 @@
                 }
               ]
             },
-            "name": "abi_encode_t_contract$_IPool_$4087_to_t_address_fromStack",
+            "name": "abi_encode_t_contract$_IPool_$4103_to_t_address_fromStack",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -1356,7 +1356,7 @@
                       }
                     ],
                     "functionName": {
-                      "name": "abi_encode_t_contract$_IPool_$4087_to_t_address_fromStack",
+                      "name": "abi_encode_t_contract$_IPool_$4103_to_t_address_fromStack",
                       "nodeType": "YulIdentifier",
                       "src": "2530:57:20"
                     },
@@ -1368,7 +1368,7 @@
                 }
               ]
             },
-            "name": "abi_encode_tuple_t_contract$_IPool_$4087__to_t_address__fromStack_reversed",
+            "name": "abi_encode_tuple_t_contract$_IPool_$4103__to_t_address__fromStack_reversed",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -1428,7 +1428,7 @@
                 }
               ]
             },
-            "name": "convert_t_contract$_ERC20_$2653_to_t_address",
+            "name": "convert_t_contract$_ERC20_$2669_to_t_address",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -1470,7 +1470,7 @@
                           }
                         ],
                         "functionName": {
-                          "name": "convert_t_contract$_ERC20_$2653_to_t_address",
+                          "name": "convert_t_contract$_ERC20_$2669_to_t_address",
                           "nodeType": "YulIdentifier",
                           "src": "2875:44:20"
                         },
@@ -1491,7 +1491,7 @@
                 }
               ]
             },
-            "name": "abi_encode_t_contract$_ERC20_$2653_to_t_address_fromStack",
+            "name": "abi_encode_t_contract$_ERC20_$2669_to_t_address_fromStack",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -1581,7 +1581,7 @@
                       }
                     ],
                     "functionName": {
-                      "name": "abi_encode_t_contract$_ERC20_$2653_to_t_address_fromStack",
+                      "name": "abi_encode_t_contract$_ERC20_$2669_to_t_address_fromStack",
                       "nodeType": "YulIdentifier",
                       "src": "3097:57:20"
                     },
@@ -1593,7 +1593,7 @@
                 }
               ]
             },
-            "name": "abi_encode_tuple_t_contract$_ERC20_$2653__to_t_address__fromStack_reversed",
+            "name": "abi_encode_tuple_t_contract$_ERC20_$2669__to_t_address__fromStack_reversed",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -1653,7 +1653,7 @@
                 }
               ]
             },
-            "name": "cleanup_t_contract$_ERC4626_$2265",
+            "name": "cleanup_t_contract$_ERC4626_$2281",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -1732,7 +1732,7 @@
                               }
                             ],
                             "functionName": {
-                              "name": "cleanup_t_contract$_ERC4626_$2265",
+                              "name": "cleanup_t_contract$_ERC4626_$2281",
                               "nodeType": "YulIdentifier",
                               "src": "3402:33:20"
                             },
@@ -1762,7 +1762,7 @@
                 }
               ]
             },
-            "name": "validator_revert_t_contract$_ERC4626_$2265",
+            "name": "validator_revert_t_contract$_ERC4626_$2281",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -1816,7 +1816,7 @@
                       }
                     ],
                     "functionName": {
-                      "name": "validator_revert_t_contract$_ERC4626_$2265",
+                      "name": "validator_revert_t_contract$_ERC4626_$2281",
                       "nodeType": "YulIdentifier",
                       "src": "3593:42:20"
                     },
@@ -1828,7 +1828,7 @@
                 }
               ]
             },
-            "name": "abi_decode_t_contract$_ERC4626_$2265_fromMemory",
+            "name": "abi_decode_t_contract$_ERC4626_$2281_fromMemory",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -1978,7 +1978,7 @@
                           }
                         ],
                         "functionName": {
-                          "name": "abi_decode_t_contract$_ERC4626_$2265_fromMemory",
+                          "name": "abi_decode_t_contract$_ERC4626_$2281_fromMemory",
                           "nodeType": "YulIdentifier",
                           "src": "3940:47:20"
                         },
@@ -1997,7 +1997,7 @@
                 }
               ]
             },
-            "name": "abi_decode_tuple_t_contract$_ERC4626_$2265_fromMemory",
+            "name": "abi_decode_tuple_t_contract$_ERC4626_$2281_fromMemory",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -2025,7 +2025,7 @@
           }
         ]
       },
-      "contents": "{\n\n    function allocate_unbounded() -> memPtr {\n        memPtr := mload(64)\n    }\n\n    function revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() {\n        revert(0, 0)\n    }\n\n    function revert_error_c1322bf8034eace5e0b5c7295db60986aa89aae5e0ea0873e4689e076861a5db() {\n        revert(0, 0)\n    }\n\n    function cleanup_t_uint160(value) -> cleaned {\n        cleaned := and(value, 0xffffffffffffffffffffffffffffffffffffffff)\n    }\n\n    function cleanup_t_address(value) -> cleaned {\n        cleaned := cleanup_t_uint160(value)\n    }\n\n    function validator_revert_t_address(value) {\n        if iszero(eq(value, cleanup_t_address(value))) { revert(0, 0) }\n    }\n\n    function abi_decode_t_address_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_address(value)\n    }\n\n    function abi_decode_tuple_t_addresst_address_fromMemory(headStart, dataEnd) -> value0, value1 {\n        if slt(sub(dataEnd, headStart), 64) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_address_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := 32\n\n            value1 := abi_decode_t_address_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_address_fromMemory(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_address_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function identity(value) -> ret {\n        ret := value\n    }\n\n    function convert_t_uint160_to_t_uint160(value) -> converted {\n        converted := cleanup_t_uint160(identity(cleanup_t_uint160(value)))\n    }\n\n    function convert_t_uint160_to_t_address(value) -> converted {\n        converted := convert_t_uint160_to_t_uint160(value)\n    }\n\n    function convert_t_contract$_IPool_$4087_to_t_address(value) -> converted {\n        converted := convert_t_uint160_to_t_address(value)\n    }\n\n    function abi_encode_t_contract$_IPool_$4087_to_t_address_fromStack(value, pos) {\n        mstore(pos, convert_t_contract$_IPool_$4087_to_t_address(value))\n    }\n\n    function abi_encode_tuple_t_contract$_IPool_$4087__to_t_address__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        abi_encode_t_contract$_IPool_$4087_to_t_address_fromStack(value0,  add(headStart, 0))\n\n    }\n\n    function convert_t_contract$_ERC20_$2653_to_t_address(value) -> converted {\n        converted := convert_t_uint160_to_t_address(value)\n    }\n\n    function abi_encode_t_contract$_ERC20_$2653_to_t_address_fromStack(value, pos) {\n        mstore(pos, convert_t_contract$_ERC20_$2653_to_t_address(value))\n    }\n\n    function abi_encode_tuple_t_contract$_ERC20_$2653__to_t_address__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        abi_encode_t_contract$_ERC20_$2653_to_t_address_fromStack(value0,  add(headStart, 0))\n\n    }\n\n    function cleanup_t_contract$_ERC4626_$2265(value) -> cleaned {\n        cleaned := cleanup_t_address(value)\n    }\n\n    function validator_revert_t_contract$_ERC4626_$2265(value) {\n        if iszero(eq(value, cleanup_t_contract$_ERC4626_$2265(value))) { revert(0, 0) }\n    }\n\n    function abi_decode_t_contract$_ERC4626_$2265_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_contract$_ERC4626_$2265(value)\n    }\n\n    function abi_decode_tuple_t_contract$_ERC4626_$2265_fromMemory(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_contract$_ERC4626_$2265_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n}\n",
+      "contents": "{\n\n    function allocate_unbounded() -> memPtr {\n        memPtr := mload(64)\n    }\n\n    function revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() {\n        revert(0, 0)\n    }\n\n    function revert_error_c1322bf8034eace5e0b5c7295db60986aa89aae5e0ea0873e4689e076861a5db() {\n        revert(0, 0)\n    }\n\n    function cleanup_t_uint160(value) -> cleaned {\n        cleaned := and(value, 0xffffffffffffffffffffffffffffffffffffffff)\n    }\n\n    function cleanup_t_address(value) -> cleaned {\n        cleaned := cleanup_t_uint160(value)\n    }\n\n    function validator_revert_t_address(value) {\n        if iszero(eq(value, cleanup_t_address(value))) { revert(0, 0) }\n    }\n\n    function abi_decode_t_address_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_address(value)\n    }\n\n    function abi_decode_tuple_t_addresst_address_fromMemory(headStart, dataEnd) -> value0, value1 {\n        if slt(sub(dataEnd, headStart), 64) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_address_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := 32\n\n            value1 := abi_decode_t_address_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_address_fromMemory(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_address_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function identity(value) -> ret {\n        ret := value\n    }\n\n    function convert_t_uint160_to_t_uint160(value) -> converted {\n        converted := cleanup_t_uint160(identity(cleanup_t_uint160(value)))\n    }\n\n    function convert_t_uint160_to_t_address(value) -> converted {\n        converted := convert_t_uint160_to_t_uint160(value)\n    }\n\n    function convert_t_contract$_IPool_$4103_to_t_address(value) -> converted {\n        converted := convert_t_uint160_to_t_address(value)\n    }\n\n    function abi_encode_t_contract$_IPool_$4103_to_t_address_fromStack(value, pos) {\n        mstore(pos, convert_t_contract$_IPool_$4103_to_t_address(value))\n    }\n\n    function abi_encode_tuple_t_contract$_IPool_$4103__to_t_address__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        abi_encode_t_contract$_IPool_$4103_to_t_address_fromStack(value0,  add(headStart, 0))\n\n    }\n\n    function convert_t_contract$_ERC20_$2669_to_t_address(value) -> converted {\n        converted := convert_t_uint160_to_t_address(value)\n    }\n\n    function abi_encode_t_contract$_ERC20_$2669_to_t_address_fromStack(value, pos) {\n        mstore(pos, convert_t_contract$_ERC20_$2669_to_t_address(value))\n    }\n\n    function abi_encode_tuple_t_contract$_ERC20_$2669__to_t_address__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        abi_encode_t_contract$_ERC20_$2669_to_t_address_fromStack(value0,  add(headStart, 0))\n\n    }\n\n    function cleanup_t_contract$_ERC4626_$2281(value) -> cleaned {\n        cleaned := cleanup_t_address(value)\n    }\n\n    function validator_revert_t_contract$_ERC4626_$2281(value) {\n        if iszero(eq(value, cleanup_t_contract$_ERC4626_$2281(value))) { revert(0, 0) }\n    }\n\n    function abi_decode_t_contract$_ERC4626_$2281_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_contract$_ERC4626_$2281(value)\n    }\n\n    function abi_decode_tuple_t_contract$_ERC4626_$2281_fromMemory(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_contract$_ERC4626_$2281_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n}\n",
       "id": 20,
       "language": "Yul",
       "name": "#utility.yul"
@@ -2314,7 +2314,7 @@
                 }
               ]
             },
-            "name": "cleanup_t_contract$_ERC20_$2653",
+            "name": "cleanup_t_contract$_ERC20_$2669",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -2393,7 +2393,7 @@
                               }
                             ],
                             "functionName": {
-                              "name": "cleanup_t_contract$_ERC20_$2653",
+                              "name": "cleanup_t_contract$_ERC20_$2669",
                               "nodeType": "YulIdentifier",
                               "src": "771:31:20"
                             },
@@ -2423,7 +2423,7 @@
                 }
               ]
             },
-            "name": "validator_revert_t_contract$_ERC20_$2653",
+            "name": "validator_revert_t_contract$_ERC20_$2669",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -2477,7 +2477,7 @@
                       }
                     ],
                     "functionName": {
-                      "name": "validator_revert_t_contract$_ERC20_$2653",
+                      "name": "validator_revert_t_contract$_ERC20_$2669",
                       "nodeType": "YulIdentifier",
                       "src": "954:40:20"
                     },
@@ -2489,7 +2489,7 @@
                 }
               ]
             },
-            "name": "abi_decode_t_contract$_ERC20_$2653",
+            "name": "abi_decode_t_contract$_ERC20_$2669",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -2639,7 +2639,7 @@
                           }
                         ],
                         "functionName": {
-                          "name": "abi_decode_t_contract$_ERC20_$2653",
+                          "name": "abi_decode_t_contract$_ERC20_$2669",
                           "nodeType": "YulIdentifier",
                           "src": "1286:34:20"
                         },
@@ -2658,7 +2658,7 @@
                 }
               ]
             },
-            "name": "abi_decode_tuple_t_contract$_ERC20_$2653",
+            "name": "abi_decode_tuple_t_contract$_ERC20_$2669",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -2891,7 +2891,7 @@
                 }
               ]
             },
-            "name": "convert_t_contract$_ERC4626_$2265_to_t_address",
+            "name": "convert_t_contract$_ERC4626_$2281_to_t_address",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -2933,7 +2933,7 @@
                           }
                         ],
                         "functionName": {
-                          "name": "convert_t_contract$_ERC4626_$2265_to_t_address",
+                          "name": "convert_t_contract$_ERC4626_$2281_to_t_address",
                           "nodeType": "YulIdentifier",
                           "src": "1973:46:20"
                         },
@@ -2954,7 +2954,7 @@
                 }
               ]
             },
-            "name": "abi_encode_t_contract$_ERC4626_$2265_to_t_address_fromStack",
+            "name": "abi_encode_t_contract$_ERC4626_$2281_to_t_address_fromStack",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -3044,7 +3044,7 @@
                       }
                     ],
                     "functionName": {
-                      "name": "abi_encode_t_contract$_ERC4626_$2265_to_t_address_fromStack",
+                      "name": "abi_encode_t_contract$_ERC4626_$2281_to_t_address_fromStack",
                       "nodeType": "YulIdentifier",
                       "src": "2199:59:20"
                     },
@@ -3056,7 +3056,7 @@
                 }
               ]
             },
-            "name": "abi_encode_tuple_t_contract$_ERC4626_$2265__to_t_address__fromStack_reversed",
+            "name": "abi_encode_tuple_t_contract$_ERC4626_$2281__to_t_address__fromStack_reversed",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -3848,7 +3848,7 @@
                 }
               ]
             },
-            "name": "convert_t_contract$_IPoolAddressesProvider_$4015_to_t_address",
+            "name": "convert_t_contract$_IPoolAddressesProvider_$4031_to_t_address",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -3890,7 +3890,7 @@
                           }
                         ],
                         "functionName": {
-                          "name": "convert_t_contract$_IPoolAddressesProvider_$4015_to_t_address",
+                          "name": "convert_t_contract$_IPoolAddressesProvider_$4031_to_t_address",
                           "nodeType": "YulIdentifier",
                           "src": "3834:61:20"
                         },
@@ -3911,7 +3911,7 @@
                 }
               ]
             },
-            "name": "abi_encode_t_contract$_IPoolAddressesProvider_$4015_to_t_address_fromStack",
+            "name": "abi_encode_t_contract$_IPoolAddressesProvider_$4031_to_t_address_fromStack",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -4001,7 +4001,7 @@
                       }
                     ],
                     "functionName": {
-                      "name": "abi_encode_t_contract$_IPoolAddressesProvider_$4015_to_t_address_fromStack",
+                      "name": "abi_encode_t_contract$_IPoolAddressesProvider_$4031_to_t_address_fromStack",
                       "nodeType": "YulIdentifier",
                       "src": "4090:74:20"
                     },
@@ -4013,7 +4013,7 @@
                 }
               ]
             },
-            "name": "abi_encode_tuple_t_contract$_IPoolAddressesProvider_$4015__to_t_address__fromStack_reversed",
+            "name": "abi_encode_tuple_t_contract$_IPoolAddressesProvider_$4031__to_t_address__fromStack_reversed",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -4073,7 +4073,7 @@
                 }
               ]
             },
-            "name": "convert_t_contract$_IPool_$4087_to_t_address",
+            "name": "convert_t_contract$_IPool_$4103_to_t_address",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -4115,7 +4115,7 @@
                           }
                         ],
                         "functionName": {
-                          "name": "convert_t_contract$_IPool_$4087_to_t_address",
+                          "name": "convert_t_contract$_IPool_$4103_to_t_address",
                           "nodeType": "YulIdentifier",
                           "src": "4452:44:20"
                         },
@@ -4136,7 +4136,7 @@
                 }
               ]
             },
-            "name": "abi_encode_t_contract$_IPool_$4087_to_t_address_fromStack",
+            "name": "abi_encode_t_contract$_IPool_$4103_to_t_address_fromStack",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -4226,7 +4226,7 @@
                       }
                     ],
                     "functionName": {
-                      "name": "abi_encode_t_contract$_IPool_$4087_to_t_address_fromStack",
+                      "name": "abi_encode_t_contract$_IPool_$4103_to_t_address_fromStack",
                       "nodeType": "YulIdentifier",
                       "src": "4674:57:20"
                     },
@@ -4238,7 +4238,7 @@
                 }
               ]
             },
-            "name": "abi_encode_tuple_t_contract$_IPool_$4087__to_t_address__fromStack_reversed",
+            "name": "abi_encode_tuple_t_contract$_IPool_$4103__to_t_address__fromStack_reversed",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -4298,7 +4298,7 @@
                 }
               ]
             },
-            "name": "convert_t_contract$_AaveV3ERC4626Factory_$3806_to_t_address",
+            "name": "convert_t_contract$_AaveV3ERC4626Factory_$3822_to_t_address",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -4340,7 +4340,7 @@
                           }
                         ],
                         "functionName": {
-                          "name": "convert_t_contract$_AaveV3ERC4626Factory_$3806_to_t_address",
+                          "name": "convert_t_contract$_AaveV3ERC4626Factory_$3822_to_t_address",
                           "nodeType": "YulIdentifier",
                           "src": "5049:59:20"
                         },
@@ -4361,7 +4361,7 @@
                 }
               ]
             },
-            "name": "abi_encode_t_contract$_AaveV3ERC4626Factory_$3806_to_t_address_fromStack",
+            "name": "abi_encode_t_contract$_AaveV3ERC4626Factory_$3822_to_t_address_fromStack",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -4451,7 +4451,7 @@
                       }
                     ],
                     "functionName": {
-                      "name": "abi_encode_t_contract$_AaveV3ERC4626Factory_$3806_to_t_address_fromStack",
+                      "name": "abi_encode_t_contract$_AaveV3ERC4626Factory_$3822_to_t_address_fromStack",
                       "nodeType": "YulIdentifier",
                       "src": "5301:72:20"
                     },
@@ -4463,7 +4463,7 @@
                 }
               ]
             },
-            "name": "abi_encode_tuple_t_contract$_AaveV3ERC4626Factory_$3806__to_t_address__fromStack_reversed",
+            "name": "abi_encode_tuple_t_contract$_AaveV3ERC4626Factory_$3822__to_t_address__fromStack_reversed",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -5803,7 +5803,7 @@
           }
         ]
       },
-      "contents": "{\n\n    function allocate_unbounded() -> memPtr {\n        memPtr := mload(64)\n    }\n\n    function revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() {\n        revert(0, 0)\n    }\n\n    function revert_error_c1322bf8034eace5e0b5c7295db60986aa89aae5e0ea0873e4689e076861a5db() {\n        revert(0, 0)\n    }\n\n    function cleanup_t_uint160(value) -> cleaned {\n        cleaned := and(value, 0xffffffffffffffffffffffffffffffffffffffff)\n    }\n\n    function cleanup_t_address(value) -> cleaned {\n        cleaned := cleanup_t_uint160(value)\n    }\n\n    function cleanup_t_contract$_ERC20_$2653(value) -> cleaned {\n        cleaned := cleanup_t_address(value)\n    }\n\n    function validator_revert_t_contract$_ERC20_$2653(value) {\n        if iszero(eq(value, cleanup_t_contract$_ERC20_$2653(value))) { revert(0, 0) }\n    }\n\n    function abi_decode_t_contract$_ERC20_$2653(offset, end) -> value {\n        value := calldataload(offset)\n        validator_revert_t_contract$_ERC20_$2653(value)\n    }\n\n    function abi_decode_tuple_t_contract$_ERC20_$2653(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_contract$_ERC20_$2653(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function identity(value) -> ret {\n        ret := value\n    }\n\n    function convert_t_uint160_to_t_uint160(value) -> converted {\n        converted := cleanup_t_uint160(identity(cleanup_t_uint160(value)))\n    }\n\n    function convert_t_uint160_to_t_address(value) -> converted {\n        converted := convert_t_uint160_to_t_uint160(value)\n    }\n\n    function convert_t_contract$_ERC4626_$2265_to_t_address(value) -> converted {\n        converted := convert_t_uint160_to_t_address(value)\n    }\n\n    function abi_encode_t_contract$_ERC4626_$2265_to_t_address_fromStack(value, pos) {\n        mstore(pos, convert_t_contract$_ERC4626_$2265_to_t_address(value))\n    }\n\n    function abi_encode_tuple_t_contract$_ERC4626_$2265__to_t_address__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        abi_encode_t_contract$_ERC4626_$2265_to_t_address_fromStack(value0,  add(headStart, 0))\n\n    }\n\n    function validator_revert_t_address(value) {\n        if iszero(eq(value, cleanup_t_address(value))) { revert(0, 0) }\n    }\n\n    function abi_decode_t_address(offset, end) -> value {\n        value := calldataload(offset)\n        validator_revert_t_address(value)\n    }\n\n    function cleanup_t_uint256(value) -> cleaned {\n        cleaned := value\n    }\n\n    function validator_revert_t_uint256(value) {\n        if iszero(eq(value, cleanup_t_uint256(value))) { revert(0, 0) }\n    }\n\n    function abi_decode_t_uint256(offset, end) -> value {\n        value := calldataload(offset)\n        validator_revert_t_uint256(value)\n    }\n\n    function abi_decode_tuple_t_addresst_uint256t_address(headStart, dataEnd) -> value0, value1, value2 {\n        if slt(sub(dataEnd, headStart), 96) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_address(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := 32\n\n            value1 := abi_decode_t_uint256(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := 64\n\n            value2 := abi_decode_t_address(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function convert_t_contract$_IPoolAddressesProvider_$4015_to_t_address(value) -> converted {\n        converted := convert_t_uint160_to_t_address(value)\n    }\n\n    function abi_encode_t_contract$_IPoolAddressesProvider_$4015_to_t_address_fromStack(value, pos) {\n        mstore(pos, convert_t_contract$_IPoolAddressesProvider_$4015_to_t_address(value))\n    }\n\n    function abi_encode_tuple_t_contract$_IPoolAddressesProvider_$4015__to_t_address__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        abi_encode_t_contract$_IPoolAddressesProvider_$4015_to_t_address_fromStack(value0,  add(headStart, 0))\n\n    }\n\n    function convert_t_contract$_IPool_$4087_to_t_address(value) -> converted {\n        converted := convert_t_uint160_to_t_address(value)\n    }\n\n    function abi_encode_t_contract$_IPool_$4087_to_t_address_fromStack(value, pos) {\n        mstore(pos, convert_t_contract$_IPool_$4087_to_t_address(value))\n    }\n\n    function abi_encode_tuple_t_contract$_IPool_$4087__to_t_address__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        abi_encode_t_contract$_IPool_$4087_to_t_address_fromStack(value0,  add(headStart, 0))\n\n    }\n\n    function convert_t_contract$_AaveV3ERC4626Factory_$3806_to_t_address(value) -> converted {\n        converted := convert_t_uint160_to_t_address(value)\n    }\n\n    function abi_encode_t_contract$_AaveV3ERC4626Factory_$3806_to_t_address_fromStack(value, pos) {\n        mstore(pos, convert_t_contract$_AaveV3ERC4626Factory_$3806_to_t_address(value))\n    }\n\n    function abi_encode_tuple_t_contract$_AaveV3ERC4626Factory_$3806__to_t_address__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        abi_encode_t_contract$_AaveV3ERC4626Factory_$3806_to_t_address_fromStack(value0,  add(headStart, 0))\n\n    }\n\n    function abi_encode_t_uint256_to_t_uint256_fromStack(value, pos) {\n        mstore(pos, cleanup_t_uint256(value))\n    }\n\n    function abi_encode_t_address_to_t_address_fromStack(value, pos) {\n        mstore(pos, cleanup_t_address(value))\n    }\n\n    function abi_encode_tuple_t_uint256_t_address_t_address__to_t_uint256_t_address_t_address__fromStack_reversed(headStart , value2, value1, value0) -> tail {\n        tail := add(headStart, 96)\n\n        abi_encode_t_uint256_to_t_uint256_fromStack(value0,  add(headStart, 0))\n\n        abi_encode_t_address_to_t_address_fromStack(value1,  add(headStart, 32))\n\n        abi_encode_t_address_to_t_address_fromStack(value2,  add(headStart, 64))\n\n    }\n\n    function abi_decode_t_uint256_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_uint256(value)\n    }\n\n    function abi_decode_tuple_t_uint256_fromMemory(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_uint256_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_encode_tuple_t_address_t_uint256__to_t_address_t_uint256__fromStack_reversed(headStart , value1, value0) -> tail {\n        tail := add(headStart, 64)\n\n        abi_encode_t_address_to_t_address_fromStack(value0,  add(headStart, 0))\n\n        abi_encode_t_uint256_to_t_uint256_fromStack(value1,  add(headStart, 32))\n\n    }\n\n    function cleanup_t_bool(value) -> cleaned {\n        cleaned := iszero(iszero(value))\n    }\n\n    function validator_revert_t_bool(value) {\n        if iszero(eq(value, cleanup_t_bool(value))) { revert(0, 0) }\n    }\n\n    function abi_decode_t_bool_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_bool(value)\n    }\n\n    function abi_decode_tuple_t_bool_fromMemory(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_bool_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_encode_tuple_t_uint256_t_address__to_t_uint256_t_address__fromStack_reversed(headStart , value1, value0) -> tail {\n        tail := add(headStart, 64)\n\n        abi_encode_t_uint256_to_t_uint256_fromStack(value0,  add(headStart, 0))\n\n        abi_encode_t_address_to_t_address_fromStack(value1,  add(headStart, 32))\n\n    }\n\n}\n",
+      "contents": "{\n\n    function allocate_unbounded() -> memPtr {\n        memPtr := mload(64)\n    }\n\n    function revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() {\n        revert(0, 0)\n    }\n\n    function revert_error_c1322bf8034eace5e0b5c7295db60986aa89aae5e0ea0873e4689e076861a5db() {\n        revert(0, 0)\n    }\n\n    function cleanup_t_uint160(value) -> cleaned {\n        cleaned := and(value, 0xffffffffffffffffffffffffffffffffffffffff)\n    }\n\n    function cleanup_t_address(value) -> cleaned {\n        cleaned := cleanup_t_uint160(value)\n    }\n\n    function cleanup_t_contract$_ERC20_$2669(value) -> cleaned {\n        cleaned := cleanup_t_address(value)\n    }\n\n    function validator_revert_t_contract$_ERC20_$2669(value) {\n        if iszero(eq(value, cleanup_t_contract$_ERC20_$2669(value))) { revert(0, 0) }\n    }\n\n    function abi_decode_t_contract$_ERC20_$2669(offset, end) -> value {\n        value := calldataload(offset)\n        validator_revert_t_contract$_ERC20_$2669(value)\n    }\n\n    function abi_decode_tuple_t_contract$_ERC20_$2669(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_contract$_ERC20_$2669(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function identity(value) -> ret {\n        ret := value\n    }\n\n    function convert_t_uint160_to_t_uint160(value) -> converted {\n        converted := cleanup_t_uint160(identity(cleanup_t_uint160(value)))\n    }\n\n    function convert_t_uint160_to_t_address(value) -> converted {\n        converted := convert_t_uint160_to_t_uint160(value)\n    }\n\n    function convert_t_contract$_ERC4626_$2281_to_t_address(value) -> converted {\n        converted := convert_t_uint160_to_t_address(value)\n    }\n\n    function abi_encode_t_contract$_ERC4626_$2281_to_t_address_fromStack(value, pos) {\n        mstore(pos, convert_t_contract$_ERC4626_$2281_to_t_address(value))\n    }\n\n    function abi_encode_tuple_t_contract$_ERC4626_$2281__to_t_address__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        abi_encode_t_contract$_ERC4626_$2281_to_t_address_fromStack(value0,  add(headStart, 0))\n\n    }\n\n    function validator_revert_t_address(value) {\n        if iszero(eq(value, cleanup_t_address(value))) { revert(0, 0) }\n    }\n\n    function abi_decode_t_address(offset, end) -> value {\n        value := calldataload(offset)\n        validator_revert_t_address(value)\n    }\n\n    function cleanup_t_uint256(value) -> cleaned {\n        cleaned := value\n    }\n\n    function validator_revert_t_uint256(value) {\n        if iszero(eq(value, cleanup_t_uint256(value))) { revert(0, 0) }\n    }\n\n    function abi_decode_t_uint256(offset, end) -> value {\n        value := calldataload(offset)\n        validator_revert_t_uint256(value)\n    }\n\n    function abi_decode_tuple_t_addresst_uint256t_address(headStart, dataEnd) -> value0, value1, value2 {\n        if slt(sub(dataEnd, headStart), 96) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_address(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := 32\n\n            value1 := abi_decode_t_uint256(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := 64\n\n            value2 := abi_decode_t_address(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function convert_t_contract$_IPoolAddressesProvider_$4031_to_t_address(value) -> converted {\n        converted := convert_t_uint160_to_t_address(value)\n    }\n\n    function abi_encode_t_contract$_IPoolAddressesProvider_$4031_to_t_address_fromStack(value, pos) {\n        mstore(pos, convert_t_contract$_IPoolAddressesProvider_$4031_to_t_address(value))\n    }\n\n    function abi_encode_tuple_t_contract$_IPoolAddressesProvider_$4031__to_t_address__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        abi_encode_t_contract$_IPoolAddressesProvider_$4031_to_t_address_fromStack(value0,  add(headStart, 0))\n\n    }\n\n    function convert_t_contract$_IPool_$4103_to_t_address(value) -> converted {\n        converted := convert_t_uint160_to_t_address(value)\n    }\n\n    function abi_encode_t_contract$_IPool_$4103_to_t_address_fromStack(value, pos) {\n        mstore(pos, convert_t_contract$_IPool_$4103_to_t_address(value))\n    }\n\n    function abi_encode_tuple_t_contract$_IPool_$4103__to_t_address__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        abi_encode_t_contract$_IPool_$4103_to_t_address_fromStack(value0,  add(headStart, 0))\n\n    }\n\n    function convert_t_contract$_AaveV3ERC4626Factory_$3822_to_t_address(value) -> converted {\n        converted := convert_t_uint160_to_t_address(value)\n    }\n\n    function abi_encode_t_contract$_AaveV3ERC4626Factory_$3822_to_t_address_fromStack(value, pos) {\n        mstore(pos, convert_t_contract$_AaveV3ERC4626Factory_$3822_to_t_address(value))\n    }\n\n    function abi_encode_tuple_t_contract$_AaveV3ERC4626Factory_$3822__to_t_address__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        abi_encode_t_contract$_AaveV3ERC4626Factory_$3822_to_t_address_fromStack(value0,  add(headStart, 0))\n\n    }\n\n    function abi_encode_t_uint256_to_t_uint256_fromStack(value, pos) {\n        mstore(pos, cleanup_t_uint256(value))\n    }\n\n    function abi_encode_t_address_to_t_address_fromStack(value, pos) {\n        mstore(pos, cleanup_t_address(value))\n    }\n\n    function abi_encode_tuple_t_uint256_t_address_t_address__to_t_uint256_t_address_t_address__fromStack_reversed(headStart , value2, value1, value0) -> tail {\n        tail := add(headStart, 96)\n\n        abi_encode_t_uint256_to_t_uint256_fromStack(value0,  add(headStart, 0))\n\n        abi_encode_t_address_to_t_address_fromStack(value1,  add(headStart, 32))\n\n        abi_encode_t_address_to_t_address_fromStack(value2,  add(headStart, 64))\n\n    }\n\n    function abi_decode_t_uint256_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_uint256(value)\n    }\n\n    function abi_decode_tuple_t_uint256_fromMemory(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_uint256_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_encode_tuple_t_address_t_uint256__to_t_address_t_uint256__fromStack_reversed(headStart , value1, value0) -> tail {\n        tail := add(headStart, 64)\n\n        abi_encode_t_address_to_t_address_fromStack(value0,  add(headStart, 0))\n\n        abi_encode_t_uint256_to_t_uint256_fromStack(value1,  add(headStart, 32))\n\n    }\n\n    function cleanup_t_bool(value) -> cleaned {\n        cleaned := iszero(iszero(value))\n    }\n\n    function validator_revert_t_bool(value) {\n        if iszero(eq(value, cleanup_t_bool(value))) { revert(0, 0) }\n    }\n\n    function abi_decode_t_bool_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_bool(value)\n    }\n\n    function abi_decode_tuple_t_bool_fromMemory(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_bool_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_encode_tuple_t_uint256_t_address__to_t_uint256_t_address__fromStack_reversed(headStart , value1, value0) -> tail {\n        tail := add(headStart, 64)\n\n        abi_encode_t_uint256_to_t_uint256_fromStack(value0,  add(headStart, 0))\n\n        abi_encode_t_address_to_t_address_fromStack(value1,  add(headStart, 32))\n\n    }\n\n}\n",
       "id": 20,
       "language": "Yul",
       "name": "#utility.yul"
@@ -5817,25 +5817,25 @@
     "absolutePath": "project:/contracts/LendingVault.sol",
     "exportedSymbols": {
       "AaveV3ERC4626": [
-        3641
+        3657
       ],
       "AaveV3ERC4626Factory": [
-        3806
+        3822
       ],
       "ERC20": [
-        2653
+        2669
       ],
       "ERC4626": [
-        2265
+        2281
       ],
       "ERC4626Factory": [
-        4159
+        4175
       ],
       "IPool": [
-        4087
+        4103
       ],
       "IPoolAddressesProvider": [
-        4015
+        4031
       ],
       "LendingVault": [
         849
@@ -5863,7 +5863,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 850,
-        "sourceUnit": 3807,
+        "sourceUnit": 3823,
         "src": "65:56:4",
         "symbolAliases": [],
         "unitAlias": ""
@@ -5875,7 +5875,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 850,
-        "sourceUnit": 4016,
+        "sourceUnit": 4032,
         "src": "122:58:4",
         "symbolAliases": [],
         "unitAlias": ""
@@ -5885,7 +5885,7 @@
         "baseContracts": [],
         "canonicalName": "LendingVault",
         "contractDependencies": [
-          3806
+          3822
         ],
         "contractKind": "contract",
         "fullyImplemented": true,
@@ -5910,7 +5910,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_AaveV3ERC4626Factory_$3806",
+              "typeIdentifier": "t_contract$_AaveV3ERC4626Factory_$3822",
               "typeString": "contract AaveV3ERC4626Factory"
             },
             "typeName": {
@@ -5923,13 +5923,13 @@
                   "211:20:4"
                 ],
                 "nodeType": "IdentifierPath",
-                "referencedDeclaration": 3806,
+                "referencedDeclaration": 3822,
                 "src": "211:20:4"
               },
-              "referencedDeclaration": 3806,
+              "referencedDeclaration": 3822,
               "src": "211:20:4",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_AaveV3ERC4626Factory_$3806",
+                "typeIdentifier": "t_contract$_AaveV3ERC4626Factory_$3822",
                 "typeString": "contract AaveV3ERC4626Factory"
               }
             },
@@ -5948,7 +5948,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_IPool_$4087",
+              "typeIdentifier": "t_contract$_IPool_$4103",
               "typeString": "contract IPool"
             },
             "typeName": {
@@ -5961,13 +5961,13 @@
                   "266:5:4"
                 ],
                 "nodeType": "IdentifierPath",
-                "referencedDeclaration": 4087,
+                "referencedDeclaration": 4103,
                 "src": "266:5:4"
               },
-              "referencedDeclaration": 4087,
+              "referencedDeclaration": 4103,
               "src": "266:5:4",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IPool_$4087",
+                "typeIdentifier": "t_contract$_IPool_$4103",
                 "typeString": "contract IPool"
               }
             },
@@ -5986,7 +5986,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_IPoolAddressesProvider_$4015",
+              "typeIdentifier": "t_contract$_IPoolAddressesProvider_$4031",
               "typeString": "contract IPoolAddressesProvider"
             },
             "typeName": {
@@ -5999,13 +5999,13 @@
                   "303:22:4"
                 ],
                 "nodeType": "IdentifierPath",
-                "referencedDeclaration": 4015,
+                "referencedDeclaration": 4031,
                 "src": "303:22:4"
               },
-              "referencedDeclaration": 4015,
+              "referencedDeclaration": 4031,
               "src": "303:22:4",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IPoolAddressesProvider_$4015",
+                "typeIdentifier": "t_contract$_IPoolAddressesProvider_$4031",
                 "typeString": "contract IPoolAddressesProvider"
               }
             },
@@ -6024,7 +6024,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_contract$_ERC20_$2653_$_t_contract$_ERC4626_$2265_$",
+              "typeIdentifier": "t_mapping$_t_contract$_ERC20_$2669_$_t_contract$_ERC4626_$2281_$",
               "typeString": "mapping(contract ERC20 => contract ERC4626)"
             },
             "typeName": {
@@ -6041,20 +6041,20 @@
                     "382:5:4"
                   ],
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 2653,
+                  "referencedDeclaration": 2669,
                   "src": "382:5:4"
                 },
-                "referencedDeclaration": 2653,
+                "referencedDeclaration": 2669,
                 "src": "382:5:4",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_contract$_ERC20_$2653",
+                  "typeIdentifier": "t_contract$_ERC20_$2669",
                   "typeString": "contract ERC20"
                 }
               },
               "nodeType": "Mapping",
               "src": "374:25:4",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_contract$_ERC20_$2653_$_t_contract$_ERC4626_$2265_$",
+                "typeIdentifier": "t_mapping$_t_contract$_ERC20_$2669_$_t_contract$_ERC4626_$2281_$",
                 "typeString": "mapping(contract ERC20 => contract ERC4626)"
               },
               "valueName": "",
@@ -6069,13 +6069,13 @@
                     "391:7:4"
                   ],
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 2265,
+                  "referencedDeclaration": 2281,
                   "src": "391:7:4"
                 },
-                "referencedDeclaration": 2265,
+                "referencedDeclaration": 2281,
                 "src": "391:7:4",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_contract$_ERC4626_$2265",
+                  "typeIdentifier": "t_contract$_ERC4626_$2281",
                   "typeString": "contract ERC4626"
                 }
               }
@@ -6103,7 +6103,7 @@
                       "referencedDeclaration": 737,
                       "src": "669:25:4",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_IPoolAddressesProvider_$4015",
+                        "typeIdentifier": "t_contract$_IPoolAddressesProvider_$4031",
                         "typeString": "contract IPoolAddressesProvider"
                       }
                     },
@@ -6135,10 +6135,10 @@
                         "name": "IPoolAddressesProvider",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 4015,
+                        "referencedDeclaration": 4031,
                         "src": "697:22:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_IPoolAddressesProvider_$4015_$",
+                          "typeIdentifier": "t_type$_t_contract$_IPoolAddressesProvider_$4031_$",
                           "typeString": "type(contract IPoolAddressesProvider)"
                         }
                       },
@@ -6154,13 +6154,13 @@
                       "src": "697:54:4",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_IPoolAddressesProvider_$4015",
+                        "typeIdentifier": "t_contract$_IPoolAddressesProvider_$4031",
                         "typeString": "contract IPoolAddressesProvider"
                       }
                     },
                     "src": "669:82:4",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IPoolAddressesProvider_$4015",
+                      "typeIdentifier": "t_contract$_IPoolAddressesProvider_$4031",
                       "typeString": "contract IPoolAddressesProvider"
                     }
                   },
@@ -6183,7 +6183,7 @@
                       "referencedDeclaration": 734,
                       "src": "761:8:4",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_IPool_$4087",
+                        "typeIdentifier": "t_contract$_IPool_$4103",
                         "typeString": "contract IPool"
                       }
                     },
@@ -6203,7 +6203,7 @@
                               "referencedDeclaration": 737,
                               "src": "778:25:4",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_contract$_IPoolAddressesProvider_$4015",
+                                "typeIdentifier": "t_contract$_IPoolAddressesProvider_$4031",
                                 "typeString": "contract IPoolAddressesProvider"
                               }
                             },
@@ -6215,7 +6215,7 @@
                             "memberLocation": "804:7:4",
                             "memberName": "getPool",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 3936,
+                            "referencedDeclaration": 3952,
                             "src": "778:33:4",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_external_view$__$returns$_t_address_$",
@@ -6250,10 +6250,10 @@
                         "name": "IPool",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 4087,
+                        "referencedDeclaration": 4103,
                         "src": "772:5:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_IPool_$4087_$",
+                          "typeIdentifier": "t_type$_t_contract$_IPool_$4103_$",
                           "typeString": "type(contract IPool)"
                         }
                       },
@@ -6269,13 +6269,13 @@
                       "src": "772:42:4",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_IPool_$4087",
+                        "typeIdentifier": "t_contract$_IPool_$4103",
                         "typeString": "contract IPool"
                       }
                     },
                     "src": "761:53:4",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IPool_$4087",
+                      "typeIdentifier": "t_contract$_IPool_$4103",
                       "typeString": "contract IPool"
                     }
                   },
@@ -6298,7 +6298,7 @@
                       "referencedDeclaration": 731,
                       "src": "924:11:4",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_AaveV3ERC4626Factory_$3806",
+                        "typeIdentifier": "t_contract$_AaveV3ERC4626Factory_$3822",
                         "typeString": "contract AaveV3ERC4626Factory"
                       }
                     },
@@ -6314,7 +6314,7 @@
                           "referencedDeclaration": 734,
                           "src": "963:8:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_IPool_$4087",
+                            "typeIdentifier": "t_contract$_IPool_$4103",
                             "typeString": "contract IPool"
                           }
                         }
@@ -6322,7 +6322,7 @@
                       "expression": {
                         "argumentTypes": [
                           {
-                            "typeIdentifier": "t_contract$_IPool_$4087",
+                            "typeIdentifier": "t_contract$_IPool_$4103",
                             "typeString": "contract IPool"
                           }
                         ],
@@ -6334,7 +6334,7 @@
                         "nodeType": "NewExpression",
                         "src": "938:24:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_IPool_$4087_$returns$_t_contract$_AaveV3ERC4626Factory_$3806_$",
+                          "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_IPool_$4103_$returns$_t_contract$_AaveV3ERC4626Factory_$3822_$",
                           "typeString": "function (contract IPool) returns (contract AaveV3ERC4626Factory)"
                         },
                         "typeName": {
@@ -6347,13 +6347,13 @@
                               "942:20:4"
                             ],
                             "nodeType": "IdentifierPath",
-                            "referencedDeclaration": 3806,
+                            "referencedDeclaration": 3822,
                             "src": "942:20:4"
                           },
-                          "referencedDeclaration": 3806,
+                          "referencedDeclaration": 3822,
                           "src": "942:20:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_AaveV3ERC4626Factory_$3806",
+                            "typeIdentifier": "t_contract$_AaveV3ERC4626Factory_$3822",
                             "typeString": "contract AaveV3ERC4626Factory"
                           }
                         }
@@ -6370,13 +6370,13 @@
                       "src": "938:34:4",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_AaveV3ERC4626Factory_$3806",
+                        "typeIdentifier": "t_contract$_AaveV3ERC4626Factory_$3822",
                         "typeString": "contract AaveV3ERC4626Factory"
                       }
                     },
                     "src": "924:48:4",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_AaveV3ERC4626Factory_$3806",
+                      "typeIdentifier": "t_contract$_AaveV3ERC4626Factory_$3822",
                       "typeString": "contract AaveV3ERC4626Factory"
                     }
                   },
@@ -6401,7 +6401,7 @@
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_ERC20_$2653",
+                        "typeIdentifier": "t_contract$_ERC20_$2669",
                         "typeString": "contract ERC20"
                       },
                       "typeName": {
@@ -6414,13 +6414,13 @@
                             "1042:5:4"
                           ],
                           "nodeType": "IdentifierPath",
-                          "referencedDeclaration": 2653,
+                          "referencedDeclaration": 2669,
                           "src": "1042:5:4"
                         },
-                        "referencedDeclaration": 2653,
+                        "referencedDeclaration": 2669,
                         "src": "1042:5:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ERC20_$2653",
+                          "typeIdentifier": "t_contract$_ERC20_$2669",
                           "typeString": "contract ERC20"
                         }
                       },
@@ -6454,10 +6454,10 @@
                       "name": "ERC20",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2653,
+                      "referencedDeclaration": 2669,
                       "src": "1060:5:4",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_contract$_ERC20_$2653_$",
+                        "typeIdentifier": "t_type$_t_contract$_ERC20_$2669_$",
                         "typeString": "type(contract ERC20)"
                       }
                     },
@@ -6473,7 +6473,7 @@
                     "src": "1060:29:4",
                     "tryCall": false,
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ERC20_$2653",
+                      "typeIdentifier": "t_contract$_ERC20_$2669",
                       "typeString": "contract ERC20"
                     }
                   },
@@ -6496,7 +6496,7 @@
                         "referencedDeclaration": 743,
                         "src": "1099:8:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_contract$_ERC20_$2653_$_t_contract$_ERC4626_$2265_$",
+                          "typeIdentifier": "t_mapping$_t_contract$_ERC20_$2669_$_t_contract$_ERC4626_$2281_$",
                           "typeString": "mapping(contract ERC20 => contract ERC4626)"
                         }
                       },
@@ -6509,7 +6509,7 @@
                         "referencedDeclaration": 774,
                         "src": "1108:9:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ERC20_$2653",
+                          "typeIdentifier": "t_contract$_ERC20_$2669",
                           "typeString": "contract ERC20"
                         }
                       },
@@ -6520,7 +6520,7 @@
                       "nodeType": "IndexAccess",
                       "src": "1099:19:4",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_ERC4626_$2265",
+                        "typeIdentifier": "t_contract$_ERC4626_$2281",
                         "typeString": "contract ERC4626"
                       }
                     },
@@ -6536,7 +6536,7 @@
                           "referencedDeclaration": 774,
                           "src": "1147:9:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_ERC20_$2653",
+                            "typeIdentifier": "t_contract$_ERC20_$2669",
                             "typeString": "contract ERC20"
                           }
                         }
@@ -6544,7 +6544,7 @@
                       "expression": {
                         "argumentTypes": [
                           {
-                            "typeIdentifier": "t_contract$_ERC20_$2653",
+                            "typeIdentifier": "t_contract$_ERC20_$2669",
                             "typeString": "contract ERC20"
                           }
                         ],
@@ -6556,7 +6556,7 @@
                           "referencedDeclaration": 731,
                           "src": "1121:11:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_AaveV3ERC4626Factory_$3806",
+                            "typeIdentifier": "t_contract$_AaveV3ERC4626Factory_$3822",
                             "typeString": "contract AaveV3ERC4626Factory"
                           }
                         },
@@ -6568,10 +6568,10 @@
                         "memberLocation": "1133:13:4",
                         "memberName": "createERC4626",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 3751,
+                        "referencedDeclaration": 3767,
                         "src": "1121:25:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_function_external_nonpayable$_t_contract$_ERC20_$2653_$returns$_t_contract$_ERC4626_$2265_$",
+                          "typeIdentifier": "t_function_external_nonpayable$_t_contract$_ERC20_$2669_$returns$_t_contract$_ERC4626_$2281_$",
                           "typeString": "function (contract ERC20) external returns (contract ERC4626)"
                         }
                       },
@@ -6587,13 +6587,13 @@
                       "src": "1121:36:4",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_ERC4626_$2265",
+                        "typeIdentifier": "t_contract$_ERC4626_$2281",
                         "typeString": "contract ERC4626"
                       }
                     },
                     "src": "1099:58:4",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ERC4626_$2265",
+                      "typeIdentifier": "t_contract$_ERC4626_$2281",
                       "typeString": "contract ERC4626"
                     }
                   },
@@ -6705,7 +6705,7 @@
                               "referencedDeclaration": 743,
                               "src": "1300:8:4",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_contract$_ERC20_$2653_$_t_contract$_ERC4626_$2265_$",
+                                "typeIdentifier": "t_mapping$_t_contract$_ERC20_$2669_$_t_contract$_ERC4626_$2281_$",
                                 "typeString": "mapping(contract ERC20 => contract ERC4626)"
                               }
                             },
@@ -6736,10 +6736,10 @@
                                 "name": "ERC20",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 2653,
+                                "referencedDeclaration": 2669,
                                 "src": "1309:5:4",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_type$_t_contract$_ERC20_$2653_$",
+                                  "typeIdentifier": "t_type$_t_contract$_ERC20_$2669_$",
                                   "typeString": "type(contract ERC20)"
                                 }
                               },
@@ -6755,7 +6755,7 @@
                               "src": "1309:19:4",
                               "tryCall": false,
                               "typeDescriptions": {
-                                "typeIdentifier": "t_contract$_ERC20_$2653",
+                                "typeIdentifier": "t_contract$_ERC20_$2669",
                                 "typeString": "contract ERC20"
                               }
                             },
@@ -6766,7 +6766,7 @@
                             "nodeType": "IndexAccess",
                             "src": "1300:29:4",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_ERC4626_$2265",
+                              "typeIdentifier": "t_contract$_ERC4626_$2281",
                               "typeString": "contract ERC4626"
                             }
                           }
@@ -6774,7 +6774,7 @@
                         "expression": {
                           "argumentTypes": [
                             {
-                              "typeIdentifier": "t_contract$_ERC4626_$2265",
+                              "typeIdentifier": "t_contract$_ERC4626_$2281",
                               "typeString": "contract ERC4626"
                             }
                           ],
@@ -6863,10 +6863,10 @@
                           "name": "ERC20",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2653,
+                          "referencedDeclaration": 2669,
                           "src": "1264:5:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_contract$_ERC20_$2653_$",
+                            "typeIdentifier": "t_type$_t_contract$_ERC20_$2669_$",
                             "typeString": "type(contract ERC20)"
                           }
                         },
@@ -6882,7 +6882,7 @@
                         "src": "1264:19:4",
                         "tryCall": false,
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ERC20_$2653",
+                          "typeIdentifier": "t_contract$_ERC20_$2669",
                           "typeString": "contract ERC20"
                         }
                       },
@@ -6894,7 +6894,7 @@
                       "memberLocation": "1284:7:4",
                       "memberName": "approve",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 2370,
+                      "referencedDeclaration": 2386,
                       "src": "1264:27:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$returns$_t_bool_$",
@@ -6969,7 +6969,7 @@
                           "referencedDeclaration": 743,
                           "src": "1350:8:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_contract$_ERC20_$2653_$_t_contract$_ERC4626_$2265_$",
+                            "typeIdentifier": "t_mapping$_t_contract$_ERC20_$2669_$_t_contract$_ERC4626_$2281_$",
                             "typeString": "mapping(contract ERC20 => contract ERC4626)"
                           }
                         },
@@ -7000,10 +7000,10 @@
                             "name": "ERC20",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2653,
+                            "referencedDeclaration": 2669,
                             "src": "1359:5:4",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_type$_t_contract$_ERC20_$2653_$",
+                              "typeIdentifier": "t_type$_t_contract$_ERC20_$2669_$",
                               "typeString": "type(contract ERC20)"
                             }
                           },
@@ -7019,7 +7019,7 @@
                           "src": "1359:19:4",
                           "tryCall": false,
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_ERC20_$2653",
+                            "typeIdentifier": "t_contract$_ERC20_$2669",
                             "typeString": "contract ERC20"
                           }
                         },
@@ -7030,7 +7030,7 @@
                         "nodeType": "IndexAccess",
                         "src": "1350:29:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ERC4626_$2265",
+                          "typeIdentifier": "t_contract$_ERC4626_$2281",
                           "typeString": "contract ERC4626"
                         }
                       },
@@ -7042,7 +7042,7 @@
                       "memberLocation": "1380:7:4",
                       "memberName": "deposit",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1861,
+                      "referencedDeclaration": 1877,
                       "src": "1350:37:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_uint256_$_t_address_$returns$_t_uint256_$",
@@ -7296,7 +7296,7 @@
                           "referencedDeclaration": 743,
                           "src": "1576:8:4",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_contract$_ERC20_$2653_$_t_contract$_ERC4626_$2265_$",
+                            "typeIdentifier": "t_mapping$_t_contract$_ERC20_$2669_$_t_contract$_ERC4626_$2281_$",
                             "typeString": "mapping(contract ERC20 => contract ERC4626)"
                           }
                         },
@@ -7327,10 +7327,10 @@
                             "name": "ERC20",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 2653,
+                            "referencedDeclaration": 2669,
                             "src": "1585:5:4",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_type$_t_contract$_ERC20_$2653_$",
+                              "typeIdentifier": "t_type$_t_contract$_ERC20_$2669_$",
                               "typeString": "type(contract ERC20)"
                             }
                           },
@@ -7346,7 +7346,7 @@
                           "src": "1585:19:4",
                           "tryCall": false,
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_ERC20_$2653",
+                            "typeIdentifier": "t_contract$_ERC20_$2669",
                             "typeString": "contract ERC20"
                           }
                         },
@@ -7357,7 +7357,7 @@
                         "nodeType": "IndexAccess",
                         "src": "1576:29:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ERC4626_$2265",
+                          "typeIdentifier": "t_contract$_ERC4626_$2281",
                           "typeString": "contract ERC4626"
                         }
                       },
@@ -7369,7 +7369,7 @@
                       "memberLocation": "1606:8:4",
                       "memberName": "withdraw",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1985,
+                      "referencedDeclaration": 2001,
                       "src": "1576:38:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_uint256_$_t_address_$_t_address_$returns$_t_uint256_$",
@@ -7522,7 +7522,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.11",
-  "updatedAt": "2023-03-03T23:59:28.857Z",
+  "updatedAt": "2023-03-04T04:42:01.134Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

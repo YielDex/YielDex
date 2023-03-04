@@ -6,12 +6,14 @@ import "./OrderBook.sol";
 
 contract OrderExecutor is OpsReady {
     uint price;
+    address deployer;
     OrderBook public orderBook;
     event OrderDone(string, uint256);
 
     constructor(address _ops, address _taskCreator) OpsReady(_ops, _taskCreator) {
         price = 100; // arbitrary price
-        orderBook = OrderBook(msg.sender);
+        deployer = msg.sender;
+        orderBook = OrderBook(_taskCreator);
     }
 
     function setPrice(uint _price) public {
@@ -35,6 +37,11 @@ contract OrderExecutor is OpsReady {
         // require(vault.getLiquidity() > 0, "No liquidity");
         canExec = orderBook.getOrder(orderNonce).price == price; // The condition that needs to be true for the task to be executed, you can filter the condition with the orderId
         execPayload = abi.encodeCall(OrderExecutor.executeOrder, orderNonce); // The function that you want to call on the contract
+    }
+
+    function withdraw() public {
+        require(msg.sender == deployer, "not allowed address");
+        payable(msg.sender).transfer(address(this).balance);
     }
 
 }
