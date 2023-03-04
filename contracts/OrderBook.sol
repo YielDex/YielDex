@@ -25,13 +25,19 @@ contract OrderBook is OpsTaskCreator {
     event construct(string, address);
     event orderCreated(string, uint256);
 
-    constructor() OpsTaskCreator(0xc1C6805B857Bef1f412519C4A842522431aFed39, address(this)) {
-        emit construct("address(ops)", address(ops));
-        orderExecutor = new OrderExecutor(address(ops), 0x08f6dDE16166F06e1d486749452dc3A44f175456);
-        // we create new "LendingVault" contract here
-        lendingVault = new LendingVault();
+    constructor(address _opsAddress) OpsTaskCreator(_opsAddress, address(this)) {
         admin = msg.sender;
     }
+
+    function setOrderExecutor(OrderExecutor _orderExecutorAddress) public {
+        require(msg.sender == admin, "You are not allowed to do that");
+        orderExecutor = _orderExecutorAddress;
+    }
+
+    function setLendingVault(address _lendingVaultAddress) public {
+        require(msg.sender == admin, "You are not allowed to do that");
+        lendingVault = LendingVault(_lendingVaultAddress);
+    } 
 
     function createOrder(uint price, uint amount, address fromToken, address toToken) external returns (uint) {
         IERC20 FromToken = IERC20(fromToken);

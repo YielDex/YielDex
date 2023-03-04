@@ -13,14 +13,14 @@ contract LendingVault {
     //IRewardsController public immutable rewardsController;
     //address public constant rewardRecipient = address(0x01);
 
-    constructor() {
+    constructor(address _iPoolAddressesProviderAddress, address _temporaryTokenAddress) {
         // Working in Goerli
-        aavePoolAddressesProvider = IPoolAddressesProvider(0xC911B590248d127aD18546B186cC6B324e99F02c);
+        aavePoolAddressesProvider = IPoolAddressesProvider(_iPoolAddressesProviderAddress);
         aavePool = IPool(aavePoolAddressesProvider.getPool());
         //rewardsController = IRewardsController(aavePoolAddressesProvider.getRewardsController());
         aaveFactory = new AaveV3ERC4626Factory(aavePool); // will continue aave integration later
         //testAsset
-        ERC20 usdcERC20 = ERC20(0x65aFADD39029741B3b8f0756952C74678c9cEC93);
+        ERC20 usdcERC20 = ERC20(_temporaryTokenAddress);
         erc4626s[usdcERC20] = aaveFactory.createERC4626(usdcERC20);
     }
 
