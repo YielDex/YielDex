@@ -24,7 +24,7 @@ contract OrderExecutor is OpsReady {
 
     function executeOrder(uint orderNonce) external /*onlyDedicatedMsgSender*/ {
         // execute order with orderNonce here
-        //orderBook.closeYieldStrategy(orderNonce);
+        orderBook.closeYieldStrategy(orderNonce);
         orderBook.setExecuted(orderNonce);
         emit OrderDone("order_executed", orderNonce);
         // 

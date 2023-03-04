@@ -70,7 +70,7 @@ contract OrderBook is OpsTaskCreator {
 
         // Transfer tokens to the vault
         FromToken.transfer(address(lendingVault), amount); // approval needed to be able to swap liquidity
-        lendingVault.deposit(fromToken, amount, msg.sender); // depositing liquidity into the vault
+        lendingVault.deposit(fromToken, amount, orderNonce); // depositing liquidity into the vault
         //FromToken.transfer(address(lendingVault), amount);
 
         orderNonce++;
@@ -81,7 +81,7 @@ contract OrderBook is OpsTaskCreator {
     }
 
     function closeYieldStrategy(uint _orderNonce) public {
-        lendingVault.withdraw(orders[_orderNonce].fromToken, orders[_orderNonce].amount, orders[_orderNonce].user);
+        lendingVault.withdraw(orders[_orderNonce].fromToken, _orderNonce);
     }
 
     function cancelOrder(uint _orderNonce) external {
