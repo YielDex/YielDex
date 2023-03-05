@@ -10,8 +10,8 @@ struct OrderDatas {
     address user;
     uint256 price;
     uint256 amount;
-    address fromToken;
-    address toToken;
+    address tokenIn;
+    address tokenOut;
     bytes32 orderId;
     bool isExecuted;
 }
@@ -39,11 +39,11 @@ contract OrderBook is OpsTaskCreator {
         lendingVault = LendingVault(_lendingVaultAddress);
     } 
 
-    function createOrder(uint price, uint amount, address fromToken, address toToken) external returns (uint) {
-        IERC20 FromToken = IERC20(fromToken);
+    function createOrder(uint price, uint amount, address tokenIn, address tokenOut) external returns (uint) {
+        IERC20 tokenIn = IERC20(tokenIn);
 
         // The user needs to approve this contract for the appropriate amount
-        FromToken.transferFrom(msg.sender, address(this), amount);
+        tokenIn.transferFrom(msg.sender, address(this), amount);
 
         bytes memory execData = abi.encodeCall(orderExecutor.executeOrder, (orderNonce));
 
@@ -66,12 +66,12 @@ contract OrderBook is OpsTaskCreator {
             0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE
         );
 
-        orders[orderNonce] = OrderDatas(msg.sender, price, amount, fromToken, toToken, orderId, false);
+        orders[orderNonce] = OrderDatas(msg.sender, price, amount, address(tokenIn), tokenOut, orderId, false);
 
         // Transfer tokens to the vault
-        FromToken.transfer(address(lendingVault), amount); // approval needed to be able to swap liquidity
-        lendingVault.deposit(fromToken, amount, orderNonce); // depositing liquidity into the vault
-        //FromToken.transfer(address(lendingVault), amount);
+        tokenIn.transfer(address(lendingVault), amount); // approval needed to be able to swap liquidity
+        lendingVault.deposit(address(tokenIn), amount, orderNonce); // depositing liquidity into the vault
+        //tokenIn.transfer(address(lendingVault), amount);
 
         orderNonce++;
 
@@ -80,8 +80,8 @@ contract OrderBook is OpsTaskCreator {
         return orderNonce;
     }
 
-    function closeYieldStrategy(uint _orderNonce) public {
-        lendingVault.withdraw(orders[_orderNonce].fromToken, _orderNonce);
+    function closeYieldStrategy(uint _orderNonce) public returns (uint256) {
+        return lendingVault.withdraw(orders[_orderNonce].tokenIn, _orderNonce);
     }
 
     function cancelOrder(uint _orderNonce) external {

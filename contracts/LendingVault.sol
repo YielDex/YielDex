@@ -33,10 +33,11 @@ contract LendingVault {
         orderShares[orderNonce] = erc4626s[ERC20(tokenAddress)].deposit(_amount, address(this));
     }
 
-    function withdraw(address tokenAddress, uint256 orderNonce) external {
+    function withdraw(address tokenAddress, uint256 orderNonce) external returns (uint256) {
         erc4626s[ERC20(tokenAddress)].approve(address(erc4626s[ERC20(tokenAddress)]), orderShares[orderNonce]);
         uint256 amount = erc4626s[ERC20(tokenAddress)].redeem(orderShares[orderNonce], address(this), address(this));
-        ERC20(tokenAddress).transfer(OrderBook(orderBookAddress).getOrder(orderNonce).user , amount);
+        ERC20(tokenAddress).transfer(orderBookAddress, amount);
+        return amount;
     }
 
 }

@@ -1,0 +1,236 @@
+{
+  "contractName": "IUniswapV3SwapCallback",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "int256",
+          "name": "amount0Delta",
+          "type": "int256"
+        },
+        {
+          "internalType": "int256",
+          "name": "amount1Delta",
+          "type": "int256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "name": "uniswapV3SwapCallback",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"amount0Delta\",\"type\":\"int256\"},{\"internalType\":\"int256\",\"name\":\"amount1Delta\",\"type\":\"int256\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"uniswapV3SwapCallback\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"uniswapV3SwapCallback(int256,int256,bytes)\":{\"details\":\"In the implementation you must pay the pool tokens owed for the swap. The caller of this method must be checked to be a UniswapV3Pool deployed by the canonical UniswapV3Factory. amount0Delta and amount1Delta can both be 0 if no tokens were swapped.\",\"params\":{\"amount0Delta\":\"The amount of token0 that was sent (negative) or must be received (positive) by the pool by the end of the swap. If positive, the callback must send that amount of token0 to the pool.\",\"amount1Delta\":\"The amount of token1 that was sent (negative) or must be received (positive) by the pool by the end of the swap. If positive, the callback must send that amount of token1 to the pool.\",\"data\":\"Any data passed through by the caller via the IUniswapV3PoolActions#swap call\"}}},\"title\":\"Callback for IUniswapV3PoolActions#swap\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"uniswapV3SwapCallback(int256,int256,bytes)\":{\"notice\":\"Called to `msg.sender` after executing a swap via IUniswapV3Pool#swap.\"}},\"notice\":\"Any contract that calls IUniswapV3PoolActions#swap must implement this interface\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/uniswap/IUniswapV3SwapCallback.sol\":\"IUniswapV3SwapCallback\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/uniswap/IUniswapV3SwapCallback.sol\":{\"keccak256\":\"0xcfdb4ef24d2eefa5dbad0b65a5df9d207ea686ce98f4f3e6bf04449ac5d1a97f\",\"license\":\"GPL-2.0-or-later\",\"urls\":[\"bzz-raw://a65cf1e26f77d15fde7c7c838b621a8a912bece8f855ffa8327ecee26dcdfe0d\",\"dweb:/ipfs/QmRm7ZfmS9ERoAxpCWfiAHCDsnxkNRg2W76xFEvb72fad1\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: GPL-2.0-or-later\npragma solidity >=0.8.19;\n\n/// @title Callback for IUniswapV3PoolActions#swap\n/// @notice Any contract that calls IUniswapV3PoolActions#swap must implement this interface\ninterface IUniswapV3SwapCallback {\n    /// @notice Called to `msg.sender` after executing a swap via IUniswapV3Pool#swap.\n    /// @dev In the implementation you must pay the pool tokens owed for the swap.\n    /// The caller of this method must be checked to be a UniswapV3Pool deployed by the canonical UniswapV3Factory.\n    /// amount0Delta and amount1Delta can both be 0 if no tokens were swapped.\n    /// @param amount0Delta The amount of token0 that was sent (negative) or must be received (positive) by the pool by\n    /// the end of the swap. If positive, the callback must send that amount of token0 to the pool.\n    /// @param amount1Delta The amount of token1 that was sent (negative) or must be received (positive) by the pool by\n    /// the end of the swap. If positive, the callback must send that amount of token1 to the pool.\n    /// @param data Any data passed through by the caller via the IUniswapV3PoolActions#swap call\n    function uniswapV3SwapCallback(\n        int256 amount0Delta,\n        int256 amount1Delta,\n        bytes calldata data\n    ) external;\n}",
+  "sourcePath": "/Users/blabla/Documents/gelato_test/contracts/uniswap/IUniswapV3SwapCallback.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/uniswap/IUniswapV3SwapCallback.sol",
+    "exportedSymbols": {
+      "IUniswapV3SwapCallback": [
+        3215
+      ]
+    },
+    "id": 3216,
+    "license": "GPL-2.0-or-later",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3203,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.8",
+          ".19"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "45:25:16"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IUniswapV3SwapCallback",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 3204,
+          "nodeType": "StructuredDocumentation",
+          "src": "72:144:16",
+          "text": "@title Callback for IUniswapV3PoolActions#swap\n @notice Any contract that calls IUniswapV3PoolActions#swap must implement this interface"
+        },
+        "fullyImplemented": false,
+        "id": 3215,
+        "linearizedBaseContracts": [
+          3215
+        ],
+        "name": "IUniswapV3SwapCallback",
+        "nameLocation": "226:22:16",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "documentation": {
+              "id": 3205,
+              "nodeType": "StructuredDocumentation",
+              "src": "255:898:16",
+              "text": "@notice Called to `msg.sender` after executing a swap via IUniswapV3Pool#swap.\n @dev In the implementation you must pay the pool tokens owed for the swap.\n The caller of this method must be checked to be a UniswapV3Pool deployed by the canonical UniswapV3Factory.\n amount0Delta and amount1Delta can both be 0 if no tokens were swapped.\n @param amount0Delta The amount of token0 that was sent (negative) or must be received (positive) by the pool by\n the end of the swap. If positive, the callback must send that amount of token0 to the pool.\n @param amount1Delta The amount of token1 that was sent (negative) or must be received (positive) by the pool by\n the end of the swap. If positive, the callback must send that amount of token1 to the pool.\n @param data Any data passed through by the caller via the IUniswapV3PoolActions#swap call"
+            },
+            "functionSelector": "fa461e33",
+            "id": 3214,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "uniswapV3SwapCallback",
+            "nameLocation": "1167:21:16",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3212,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3207,
+                  "mutability": "mutable",
+                  "name": "amount0Delta",
+                  "nameLocation": "1205:12:16",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3214,
+                  "src": "1198:19:16",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_int256",
+                    "typeString": "int256"
+                  },
+                  "typeName": {
+                    "id": 3206,
+                    "name": "int256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1198:6:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_int256",
+                      "typeString": "int256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3209,
+                  "mutability": "mutable",
+                  "name": "amount1Delta",
+                  "nameLocation": "1234:12:16",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3214,
+                  "src": "1227:19:16",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_int256",
+                    "typeString": "int256"
+                  },
+                  "typeName": {
+                    "id": 3208,
+                    "name": "int256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1227:6:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_int256",
+                      "typeString": "int256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3211,
+                  "mutability": "mutable",
+                  "name": "data",
+                  "nameLocation": "1271:4:16",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3214,
+                  "src": "1256:19:16",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 3210,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1256:5:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1188:93:16"
+            },
+            "returnParameters": {
+              "id": 3213,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1290:0:16"
+            },
+            "scope": 3215,
+            "src": "1158:133:16",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 3216,
+        "src": "216:1077:16",
+        "usedErrors": []
+      }
+    ],
+    "src": "45:1248:16"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.19+commit.7dd6d404.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.11",
+  "updatedAt": "2023-03-05T01:22:35.991Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "uniswapV3SwapCallback(int256,int256,bytes)": {
+        "details": "In the implementation you must pay the pool tokens owed for the swap. The caller of this method must be checked to be a UniswapV3Pool deployed by the canonical UniswapV3Factory. amount0Delta and amount1Delta can both be 0 if no tokens were swapped.",
+        "params": {
+          "amount0Delta": "The amount of token0 that was sent (negative) or must be received (positive) by the pool by the end of the swap. If positive, the callback must send that amount of token0 to the pool.",
+          "amount1Delta": "The amount of token1 that was sent (negative) or must be received (positive) by the pool by the end of the swap. If positive, the callback must send that amount of token1 to the pool.",
+          "data": "Any data passed through by the caller via the IUniswapV3PoolActions#swap call"
+        }
+      }
+    },
+    "title": "Callback for IUniswapV3PoolActions#swap",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "uniswapV3SwapCallback(int256,int256,bytes)": {
+        "notice": "Called to `msg.sender` after executing a swap via IUniswapV3Pool#swap."
+      }
+    },
+    "notice": "Any contract that calls IUniswapV3PoolActions#swap must implement this interface",
+    "version": 1
+  }
+}

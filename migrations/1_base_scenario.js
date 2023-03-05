@@ -12,14 +12,13 @@ var IERC20 = artifacts.require("IERC20.sol");
 module.exports = (deployer, network, accounts) => {
     deployer.then(async () => {
     // Deploying orderbook contract
-    console.log("process", env.parsed)
+    console.log("process", env.parsed);
     OrderBook = await OrderBook.new(env.parsed.Ops);
-    OrderExecutor = await OrderExecutor.new(env.parsed.Ops, OrderBook.address)
+    OrderExecutor = await OrderExecutor.new(env.parsed.Ops, OrderBook.address, env.parsed.SwapRouter);
     await OrderBook.setOrderExecutor(OrderExecutor.address);
 		LendingVault = await LendingVault.new(env.parsed.IPoolAddressesProvider, env.parsed.USDC, OrderBook.address);
     await OrderBook.setLendingVault(LendingVault.address);
 
-    
     console.log("OrderBook address: " + OrderBook.address);
     console.log("OrderExecutor address: " + OrderExecutor.address);
     console.log("LendingVault address: " + LendingVault.address);
