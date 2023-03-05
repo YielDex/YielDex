@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.19;
 
-import "./OpsReady.sol";
+import "./gelato/OpsReady.sol";
 import "./OrderBook.sol";
 import './LendingVault.sol';
 import "./uniswap/ISwapRouter.sol";

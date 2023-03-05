@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.19;
 
-import "./Types.sol";
+import "./gelato/Types.sol";
 import "./OrderExecutor.sol";
-import "./OpsTaskCreator.sol";
+import "./gelato/OpsTaskCreator.sol";
 import './LendingVault.sol';
 
 struct OrderDatas {
@@ -58,7 +58,6 @@ contract OrderBook is OpsTaskCreator {
         moduleData.args[0] = _resolverModuleArg(address(orderExecutor), abi.encodeCall(orderExecutor.checker, (orderNonce)));
         moduleData.args[1] = _singleExecModuleArg();
 
-        // Faulty
         bytes32 orderId = ops.createTask(
             address(orderExecutor), // contract to execute
             execData, // function to execute

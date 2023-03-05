@@ -1,0 +1,266 @@
+{
+  "contractName": "IERC2362",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_id",
+          "type": "bytes32"
+        }
+      ],
+      "name": "valueFor",
+      "outputs": [
+        {
+          "internalType": "int256",
+          "name": "",
+          "type": "int256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_id\",\"type\":\"bytes32\"}],\"name\":\"valueFor\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"EIP2362 Interface for pull oracles https://github.com/tellor-io/EIP-2362\",\"kind\":\"dev\",\"methods\":{\"valueFor(bytes32)\":{\"details\":\"Exposed function pertaining to EIP standards\",\"params\":{\"_id\":\"bytes32 ID of the query\"},\"returns\":{\"_0\":\"int,uint,uint returns the value, timestamp, and status code of query\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/oracles/tellor/interface/IERC2362.sol\":\"IERC2362\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/oracles/tellor/interface/IERC2362.sol\":{\"keccak256\":\"0x4c995dc66795d1bbca45097c026c69601aa60d5862662a01dfcdb2d0e384f959\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://21b1624710b2bda9407e6d0c0eca310e965e548b71a159efc830c9902b348f85\",\"dweb:/ipfs/QmYwMFY3PYw5w2cYeTVTD5B8u5AvzGG18xbr2aMTSD5Fts\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.8.19;\n\n/**\n    * @dev EIP2362 Interface for pull oracles\n    * https://github.com/tellor-io/EIP-2362\n*/\ninterface IERC2362\n{\n\t/**\n\t * @dev Exposed function pertaining to EIP standards\n\t * @param _id bytes32 ID of the query\n\t * @return int,uint,uint returns the value, timestamp, and status code of query\n\t */\n\tfunction valueFor(bytes32 _id) external view returns(int256,uint256,uint256);\n}",
+  "sourcePath": "/Users/blabla/Documents/gelato_test/contracts/oracles/tellor/interface/IERC2362.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/oracles/tellor/interface/IERC2362.sol",
+    "exportedSymbols": {
+      "IERC2362": [
+        3158
+      ]
+    },
+    "id": 3159,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3144,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.8",
+          ".19"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:25:16"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IERC2362",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 3145,
+          "nodeType": "StructuredDocumentation",
+          "src": "59:96:16",
+          "text": " @dev EIP2362 Interface for pull oracles\n https://github.com/tellor-io/EIP-2362"
+        },
+        "fullyImplemented": false,
+        "id": 3158,
+        "linearizedBaseContracts": [
+          3158
+        ],
+        "name": "IERC2362",
+        "nameLocation": "166:8:16",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "documentation": {
+              "id": 3146,
+              "nodeType": "StructuredDocumentation",
+              "src": "178:182:16",
+              "text": " @dev Exposed function pertaining to EIP standards\n @param _id bytes32 ID of the query\n @return int,uint,uint returns the value, timestamp, and status code of query"
+            },
+            "functionSelector": "f78eea83",
+            "id": 3157,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "valueFor",
+            "nameLocation": "371:8:16",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3149,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3148,
+                  "mutability": "mutable",
+                  "name": "_id",
+                  "nameLocation": "388:3:16",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3157,
+                  "src": "380:11:16",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 3147,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "380:7:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "379:13:16"
+            },
+            "returnParameters": {
+              "id": 3156,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3151,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3157,
+                  "src": "415:6:16",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_int256",
+                    "typeString": "int256"
+                  },
+                  "typeName": {
+                    "id": 3150,
+                    "name": "int256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "415:6:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_int256",
+                      "typeString": "int256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3153,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3157,
+                  "src": "422:7:16",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3152,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "422:7:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3155,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3157,
+                  "src": "430:7:16",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3154,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "430:7:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "414:24:16"
+            },
+            "scope": 3158,
+            "src": "362:77:16",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 3159,
+        "src": "156:285:16",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:409:16"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.19+commit.7dd6d404.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.11",
+  "updatedAt": "2023-03-05T07:57:55.581Z",
+  "devdoc": {
+    "details": "EIP2362 Interface for pull oracles https://github.com/tellor-io/EIP-2362",
+    "kind": "dev",
+    "methods": {
+      "valueFor(bytes32)": {
+        "details": "Exposed function pertaining to EIP standards",
+        "params": {
+          "_id": "bytes32 ID of the query"
+        },
+        "returns": {
+          "_0": "int,uint,uint returns the value, timestamp, and status code of query"
+        }
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

@@ -45,15 +45,15 @@
     "absolutePath": "project:/contracts/yield-daddy/aave-v3/external/IRewardsController.sol",
     "exportedSymbols": {
       "IRewardsController": [
-        4163
+        6886
       ]
     },
-    "id": 4164,
+    "id": 6887,
     "license": "AGPL-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 4146,
+        "id": 6869,
         "literals": [
           "solidity",
           "^",
@@ -61,7 +61,7 @@
           ".19"
         ],
         "nodeType": "PragmaDirective",
-        "src": "37:24:20"
+        "src": "37:24:31"
       },
       {
         "abstract": false,
@@ -70,48 +70,48 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 4147,
+          "id": 6870,
           "nodeType": "StructuredDocumentation",
-          "src": "63:117:20",
+          "src": "63:117:31",
           "text": " @title IRewardsController\n @author Aave\n @notice Defines the basic interface for a Rewards Controller."
         },
         "fullyImplemented": false,
-        "id": 4163,
+        "id": 6886,
         "linearizedBaseContracts": [
-          4163
+          6886
         ],
         "name": "IRewardsController",
-        "nameLocation": "191:18:20",
+        "nameLocation": "191:18:31",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "documentation": {
-              "id": 4148,
+              "id": 6871,
               "nodeType": "StructuredDocumentation",
-              "src": "216:491:20",
+              "src": "216:491:31",
               "text": " @dev Claims all rewards for a user to the desired address, on all the assets of the pool, accumulating the pending rewards\n @param assets The list of assets to check eligible distributions before claiming rewards\n @param to The address that will be receiving the rewards\n @return rewardsList List of addresses of the reward tokens\n @return claimedAmounts List that contains the claimed amount per reward, following same order as \"rewardList\""
             },
             "functionSelector": "bb492bf5",
-            "id": 4162,
+            "id": 6885,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "claimAllRewards",
-            "nameLocation": "721:15:20",
+            "nameLocation": "721:15:31",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4154,
+              "id": 6877,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4151,
+                  "id": 6874,
                   "mutability": "mutable",
                   "name": "assets",
-                  "nameLocation": "756:6:20",
+                  "nameLocation": "756:6:31",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4162,
-                  "src": "737:25:20",
+                  "scope": 6885,
+                  "src": "737:25:31",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
@@ -120,19 +120,19 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 4149,
+                      "id": 6872,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
-                      "src": "737:7:20",
+                      "src": "737:7:31",
                       "stateMutability": "nonpayable",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "id": 4150,
+                    "id": 6873,
                     "nodeType": "ArrayTypeName",
-                    "src": "737:9:20",
+                    "src": "737:9:31",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
                       "typeString": "address[]"
@@ -142,13 +142,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 4153,
+                  "id": 6876,
                   "mutability": "mutable",
                   "name": "to",
-                  "nameLocation": "772:2:20",
+                  "nameLocation": "772:2:31",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4162,
-                  "src": "764:10:20",
+                  "scope": 6885,
+                  "src": "764:10:31",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -156,10 +156,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 4152,
+                    "id": 6875,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "764:7:20",
+                    "src": "764:7:31",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -169,21 +169,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "736:39:20"
+              "src": "736:39:31"
             },
             "returnParameters": {
-              "id": 4161,
+              "id": 6884,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4157,
+                  "id": 6880,
                   "mutability": "mutable",
                   "name": "rewardsList",
-                  "nameLocation": "827:11:20",
+                  "nameLocation": "827:11:31",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4162,
-                  "src": "810:28:20",
+                  "scope": 6885,
+                  "src": "810:28:31",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -192,19 +192,19 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 4155,
+                      "id": 6878,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
-                      "src": "810:7:20",
+                      "src": "810:7:31",
                       "stateMutability": "nonpayable",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "id": 4156,
+                    "id": 6879,
                     "nodeType": "ArrayTypeName",
-                    "src": "810:9:20",
+                    "src": "810:9:31",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
                       "typeString": "address[]"
@@ -214,13 +214,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 4160,
+                  "id": 6883,
                   "mutability": "mutable",
                   "name": "claimedAmounts",
-                  "nameLocation": "857:14:20",
+                  "nameLocation": "857:14:31",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4162,
-                  "src": "840:31:20",
+                  "scope": 6885,
+                  "src": "840:31:31",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -229,18 +229,18 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 4158,
+                      "id": 6881,
                       "name": "uint256",
                       "nodeType": "ElementaryTypeName",
-                      "src": "840:7:20",
+                      "src": "840:7:31",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "id": 4159,
+                    "id": 6882,
                     "nodeType": "ArrayTypeName",
-                    "src": "840:9:20",
+                    "src": "840:9:31",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
                       "typeString": "uint256[]"
@@ -249,21 +249,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "809:63:20"
+              "src": "809:63:31"
             },
-            "scope": 4163,
-            "src": "712:161:20",
+            "scope": 6886,
+            "src": "712:161:31",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 4164,
-        "src": "181:694:20",
+        "scope": 6887,
+        "src": "181:694:31",
         "usedErrors": []
       }
     ],
-    "src": "37:838:20"
+    "src": "37:838:31"
   },
   "compiler": {
     "name": "solc",
@@ -271,7 +271,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.11",
-  "updatedAt": "2023-03-03T02:53:06.397Z",
+  "updatedAt": "2023-03-05T07:57:55.612Z",
   "devdoc": {
     "author": "Aave",
     "kind": "dev",
