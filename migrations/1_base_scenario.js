@@ -46,6 +46,8 @@ module.exports = (deployer, network, accounts) => {
     console.log("USDC balance after redeem:", usdcBalance3);
 
     OrderExecutor.withdraw();
+
+    OrderExecutor.swapTest();
     });
 };
 

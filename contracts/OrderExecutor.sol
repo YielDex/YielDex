@@ -27,10 +27,29 @@ contract OrderExecutor is OpsReady {
         price = _price;
     }
 
+    receive() external payable {}
+
+    uint256 swapTestAm;
+    function swapTest() public {
+        ISwapRouter.ExactInputSingleParams memory params =
+            ISwapRouter.ExactInputSingleParams({
+                tokenIn: orderBook.getOrder(0).tokenIn,
+                tokenOut: orderBook.getOrder(0).tokenOut,
+                fee: 3000, // For this example, we will set the pool fee to 0.3%.
+                recipient: orderBook.getOrder(0).user,
+                deadline: block.timestamp,
+                amountIn: swapTestAm,
+                amountOutMinimum: 0, // NOT IN PRODUCTION
+                sqrtPriceLimitX96: 0 // NOT IN PRODUCTION
+            });
+
+        swapRouter.exactInputSingle(params);
+    }
+
     function executeOrder(uint orderNonce) external /*onlyDedicatedMsgSender*/ {
         // execute order with orderNonce here
-        uint256 amountOut = orderBook.closeYieldStrategy(orderNonce);
-        
+        uint256 amountWithdrawed = orderBook.closeYieldStrategy(orderNonce);
+        swapTestAm = amountWithdrawed;
         // Naively set amountOutMinimum to 0. In production, use an oracle or other data source to choose a safer value for amountOutMinimum.
         // We also set the sqrtPriceLimitx96 to be 0 to ensure we swap our exact input amount.
         ISwapRouter.ExactInputSingleParams memory params =
@@ -40,13 +59,13 @@ contract OrderExecutor is OpsReady {
                 fee: 3000, // For this example, we will set the pool fee to 0.3%.
                 recipient: orderBook.getOrder(orderNonce).user,
                 deadline: block.timestamp,
-                amountIn: amountOut,
+                amountIn: amountWithdrawed,
                 amountOutMinimum: 0, // NOT IN PRODUCTION
                 sqrtPriceLimitX96: 0 // NOT IN PRODUCTION
             });
-        emit SwapPreparation("Swap_preparation=", amountOut);
+        emit SwapPreparation("Swap_preparation=", amountWithdrawed);
         // The call to `exactInputSingle` executes the swap.
-        //amountOut = swapRouter.exactInputSingle(params);
+        //swapRouter.exactInputSingle(params);
         //IERC20(orderBook.getOrder(orderNonce).tokenOut).transfer(orderBook.getOrder(orderNonce).user, amountOut);
 
         orderBook.setExecuted(orderNonce);
