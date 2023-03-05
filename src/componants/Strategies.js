@@ -1,7 +1,7 @@
 import Block from "./Block";
 import "./styles.css";
 
-import { Assets, Protocols } from '../constants/Mumbai.assets.js'
+import { Assets, Protocols } from '../constants/Polygon.assets.js'
 
 const generateData = () => {
   const blocks = [];

@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 // import { Web3Modal } from '@web3modal/react';
 import { providers } from '@web3modal/ethereum';
-import { gnosisTestnet, cronosTestnet, mumbaiTestnet } from "./utils/network";
+// import { gnosisTestnet, cronosTestnet, mumbaiTestnet, polygon } from "./utils/network";
 import { useState, useEffect } from 'react';
 
 import {
@@ -48,7 +48,8 @@ import IntuButton from './Intu/IntuButton';
 //   }
 // };
 
-const chains = [polygonMumbai]
+// const chains = [polygonMumbai]
+const chains = [polygon];
 
 // Wagmi client
 const { provider } = configureChains(chains, [
@@ -60,7 +61,8 @@ const wagmiClient = createClient({
   autoConnect: true,
   connectors: modalConnectors({
     projectId: '1bd4139fcba9da0ebb55e2d5ffa1d12d',
-    version: "2", // "1" or "2"
+    // version: "2", // "1" or "2"
+    version: "1",
     appName: "web3Modal",
     chains,
   }),

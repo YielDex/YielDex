@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import './PriceOracle'
-import { useAccount, useWaitForTransaction } from 'wagmi'
+import { useAccount } from 'wagmi'
 import { prepareWriteContract, writeContract } from '@wagmi/core'
 
-import { Assets, Contracts } from '../constants/Mumbai.assets';
+import { Assets, Contracts } from '../constants/Polygon.assets.js';
 
 import { BigNumber } from 'ethers';
 import { useETHPrice } from './PriceOracle';
@@ -17,9 +17,11 @@ const Block = ({ strategyName, image, score, cryptoLogo, buyAssetState, underlay
   const [orderPrice, setOrderPrice] = useState("");
   const { address, isConnected } = useAccount();
   const [txHash, setTxHash] = useState("");
-  const [orderAmount, setOrderAmount] = useState(10000);
+  const [orderAmount, setOrderAmount] = useState(1);
+  const decimales = Assets.filter(asset => asset.assetAddress === selectedUnderlayingAsset)[0]?.assetDecimals;
 
-  const mumbaiChainId = 80001;
+  // const mumbaiChainId = 80001;
+  const polygonChainId = 137;
 
   const assetUnderlaying = Assets.filter(asset => asset.assetAddress === selectedUnderlayingAsset)[0]?.assetName;
   const assetToBuy = Assets.filter(asset => asset.assetAddress === selectedBuyAsset)[0]?.assetName;
@@ -35,6 +37,10 @@ const Block = ({ strategyName, image, score, cryptoLogo, buyAssetState, underlay
     setOrderPrice(event.target.value);
   };
 
+  const handleAmountChange = (event) => {
+    setOrderAmount(event.target.value);
+  };
+
   const handleModalClose = () => {
     setIsModalOpen(false);
   };
@@ -43,16 +49,10 @@ const Block = ({ strategyName, image, score, cryptoLogo, buyAssetState, underlay
     setIsModalOpen(true);
   };
 
-
-  const { isError, isLoading } = useWaitForTransaction({
-    confirmations: 5,
-    chainId: mumbaiChainId,
-    hash: txHash,
-  })
+  const OrderBookAddress = Contracts.filter(contract => contract.contractName === 'OrderBook')[0].contractAddress;
 
 
   const approveTransaction = async (orderAmount) => {
-    console.log({address})
     const config = await prepareWriteContract({
       address: selectedUnderlayingAsset,
       abi: [{
@@ -79,8 +79,9 @@ const Block = ({ strategyName, image, score, cryptoLogo, buyAssetState, underlay
         "type": "function"
     },],
       functionName: 'approve',
-      args: [ address, orderAmount ],
-      chainId: mumbaiChainId,
+      args: [ OrderBookAddress, BigNumber.from(orderAmount).mul(BigNumber.from(10).pow(decimales)) ],
+      // chainId: mumbaiChainId,
+      chainId: polygonChainId,
     })
     const { hash } = await writeContract(config)
     console.log(hash)
@@ -88,46 +89,294 @@ const Block = ({ strategyName, image, score, cryptoLogo, buyAssetState, underlay
   }
 
   const runPlaceOrderTransaction = async (orderAmount) => {
-    console.log(Contracts.filter(contract => contract.contractName === 'OrderBook')[0].contractAddress)
     const config = await prepareWriteContract({
-      address: Contracts.filter(contract => contract.contractName === 'OrderBook')[0].contractAddress,
-      abi: [{
-        "inputs":[
-          {
-            "internalType":"uint256",
-            "name":"price",
-            "type":"uint256"
-          },
-          {
-            "internalType":"uint256",
-            "name":"amount",
-            "type":"uint256"
-          },
-          {
-            "internalType":"address",
-            "name":"tokenIn",
-            "type":"address"
-          },
-          {
-            "internalType":"address",
-            "name":"tokenOut",
-            "type":"address"
-          }
-        ],
-        "name":"createOrder",
-        "outputs":[
-          {
-            "internalType":"uint256",
-            "name":"",
-            "type":"uint256"
-          }
-        ],
-        "stateMutability":"nonpayable",
-        "type":"function"
-      }],
+      address:  OrderBookAddress,
+      abi: [
+        {
+           "inputs":[
+              {
+                 "internalType":"address",
+                 "name":"_opsAddress",
+                 "type":"address"
+              }
+           ],
+           "stateMutability":"nonpayable",
+           "type":"constructor"
+        },
+        {
+           "anonymous":false,
+           "inputs":[
+              {
+                 "indexed":false,
+                 "internalType":"string",
+                 "name":"",
+                 "type":"string"
+              },
+              {
+                 "indexed":false,
+                 "internalType":"uint256",
+                 "name":"",
+                 "type":"uint256"
+              }
+           ],
+           "name":"orderCreated",
+           "type":"event"
+        },
+        {
+           "inputs":[
+              {
+                 "internalType":"uint256",
+                 "name":"_orderNonce",
+                 "type":"uint256"
+              }
+           ],
+           "name":"cancelOrder",
+           "outputs":[
+              
+           ],
+           "stateMutability":"nonpayable",
+           "type":"function"
+        },
+        {
+           "inputs":[
+              {
+                 "internalType":"uint256",
+                 "name":"price",
+                 "type":"uint256"
+              },
+              {
+                 "internalType":"uint256",
+                 "name":"amount",
+                 "type":"uint256"
+              },
+              {
+                 "internalType":"address",
+                 "name":"_tokenIn",
+                 "type":"address"
+              },
+              {
+                 "internalType":"address",
+                 "name":"tokenOut",
+                 "type":"address"
+              }
+           ],
+           "name":"createOrder",
+           "outputs":[
+              {
+                 "internalType":"uint256",
+                 "name":"",
+                 "type":"uint256"
+              }
+           ],
+           "stateMutability":"nonpayable",
+           "type":"function"
+        },
+        {
+           "inputs":[
+              
+           ],
+           "name":"dedicatedMsgSender",
+           "outputs":[
+              {
+                 "internalType":"address",
+                 "name":"",
+                 "type":"address"
+              }
+           ],
+           "stateMutability":"view",
+           "type":"function"
+        },
+        {
+           "inputs":[
+              
+           ],
+           "name":"fundsOwner",
+           "outputs":[
+              {
+                 "internalType":"address",
+                 "name":"",
+                 "type":"address"
+              }
+           ],
+           "stateMutability":"view",
+           "type":"function"
+        },
+        {
+           "inputs":[
+              
+           ],
+           "name":"getExecutorAddress",
+           "outputs":[
+              {
+                 "internalType":"address",
+                 "name":"",
+                 "type":"address"
+              }
+           ],
+           "stateMutability":"view",
+           "type":"function"
+        },
+        {
+           "inputs":[
+              {
+                 "internalType":"uint256",
+                 "name":"_orderNonce",
+                 "type":"uint256"
+              }
+           ],
+           "name":"getOrder",
+           "outputs":[
+              {
+                 "components":[
+                    {
+                       "internalType":"address",
+                       "name":"user",
+                       "type":"address"
+                    },
+                    {
+                       "internalType":"uint256",
+                       "name":"price",
+                       "type":"uint256"
+                    },
+                    {
+                       "internalType":"uint256",
+                       "name":"amount",
+                       "type":"uint256"
+                    },
+                    {
+                       "internalType":"address",
+                       "name":"tokenIn",
+                       "type":"address"
+                    },
+                    {
+                       "internalType":"address",
+                       "name":"tokenOut",
+                       "type":"address"
+                    },
+                    {
+                       "internalType":"bytes32",
+                       "name":"orderId",
+                       "type":"bytes32"
+                    },
+                    {
+                       "internalType":"bool",
+                       "name":"isExecuted",
+                       "type":"bool"
+                    }
+                 ],
+                 "internalType":"struct OrderDatas",
+                 "name":"",
+                 "type":"tuple"
+              }
+           ],
+           "stateMutability":"view",
+           "type":"function"
+        },
+        {
+           "inputs":[
+              
+           ],
+           "name":"ops",
+           "outputs":[
+              {
+                 "internalType":"contract IOps",
+                 "name":"",
+                 "type":"address"
+              }
+           ],
+           "stateMutability":"view",
+           "type":"function"
+        },
+        {
+           "inputs":[
+              {
+                 "internalType":"uint256",
+                 "name":"_orderNonce",
+                 "type":"uint256"
+              }
+           ],
+           "name":"setExecuted",
+           "outputs":[
+              
+           ],
+           "stateMutability":"nonpayable",
+           "type":"function"
+        },
+        {
+           "inputs":[
+              {
+                 "internalType":"address",
+                 "name":"_lendingVaultAddress",
+                 "type":"address"
+              }
+           ],
+           "name":"setLendingVault",
+           "outputs":[
+              
+           ],
+           "stateMutability":"nonpayable",
+           "type":"function"
+        },
+        {
+           "inputs":[
+              {
+                 "internalType":"contract OrderExecutor",
+                 "name":"_orderExecutorAddress",
+                 "type":"address"
+              }
+           ],
+           "name":"setOrderExecutor",
+           "outputs":[
+              
+           ],
+           "stateMutability":"nonpayable",
+           "type":"function"
+        },
+        {
+           "inputs":[
+              
+           ],
+           "name":"taskTreasury",
+           "outputs":[
+              {
+                 "internalType":"contract ITaskTreasuryUpgradable",
+                 "name":"",
+                 "type":"address"
+              }
+           ],
+           "stateMutability":"view",
+           "type":"function"
+        },
+        {
+           "inputs":[
+              {
+                 "internalType":"uint256",
+                 "name":"_amount",
+                 "type":"uint256"
+              },
+              {
+                 "internalType":"address",
+                 "name":"_token",
+                 "type":"address"
+              }
+           ],
+           "name":"withdrawFunds",
+           "outputs":[
+              
+           ],
+           "stateMutability":"nonpayable",
+           "type":"function"
+        }
+     ],
       functionName: 'createOrder',
-      args: [orderPrice, BigNumber.from(orderAmount), selectedUnderlayingAsset, selectedBuyAsset ],
-      chainId: mumbaiChainId,
+      args: [
+        orderPrice,
+        BigNumber.from(orderAmount).mul(BigNumber.from(10).pow(decimales)),
+        selectedUnderlayingAsset,
+        selectedBuyAsset
+      ],
+      // chainId: mumbaiChainId,
+      chainId: polygonChainId
     })
     const { hash } = await writeContract(config)
     console.log(hash)
@@ -191,6 +440,12 @@ const Block = ({ strategyName, image, score, cryptoLogo, buyAssetState, underlay
                   type="number"
                   value={orderPrice}
                   onChange={handlePriceChange}
+                />
+                <label>Amount: </label>
+                <input
+                  type="number"
+                  value={orderAmount}
+                  onChange={handleAmountChange}
                 />
                 <button className="modal-btn btn btn-primary" onClick={handleApproveButton} >
                   Approve 

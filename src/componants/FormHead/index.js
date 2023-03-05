@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./styles.css";
-import { Assets } from "../../constants/Mumbai.assets";
+import { Assets } from "../../constants/Polygon.assets.js";
 
 const FormHead = ({underlayingAssetState, buyAssetState}) => {
   
