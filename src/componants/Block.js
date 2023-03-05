@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
 import './PriceOracle'
-import { useAccount } from 'wagmi'
+import { useAccount, useWaitForTransaction } from 'wagmi'
 import { prepareWriteContract, writeContract } from '@wagmi/core'
 
-import { Assets } from '../constants/Mumbai.assets';
+import { Assets, Contracts } from '../constants/Mumbai.assets';
+
+import { BigNumber } from 'ethers';
+import { useETHPrice } from './PriceOracle';
 
 const Block = ({ strategyName, image, score, cryptoLogo, buyAssetState, underlayingAssetState }) => {
   const {selectedBuyAsset, setSelectedBuyAsset} = buyAssetState;
@@ -13,6 +16,16 @@ const Block = ({ strategyName, image, score, cryptoLogo, buyAssetState, underlay
   
   const [orderPrice, setOrderPrice] = useState("");
   const { address, isConnected } = useAccount();
+  const [txHash, setTxHash] = useState("");
+  const [orderAmount, setOrderAmount] = useState(10000);
+
+  const mumbaiChainId = 80001;
+
+  const assetUnderlaying = Assets.filter(asset => asset.assetAddress === selectedUnderlayingAsset)[0]?.assetName;
+  const assetToBuy = Assets.filter(asset => asset.assetAddress === selectedBuyAsset)[0]?.assetName;
+
+  const ethPrice = useETHPrice();
+  const price = ((assetToBuy == 'ETH') && (assetUnderlaying == 'DAI' || assetUnderlaying == 'USDC')) ?  `Current price: ${Math.floor(ethPrice)}` : '';
 
   const handleAssetChange = (event) => {
     setSelectedBuyAsset(event.target.value);
@@ -30,18 +43,101 @@ const Block = ({ strategyName, image, score, cryptoLogo, buyAssetState, underlay
     setIsModalOpen(true);
   };
 
-  const placeOrder = () => {
+
+  const { isError, isLoading } = useWaitForTransaction({
+    confirmations: 5,
+    chainId: mumbaiChainId,
+    hash: txHash,
+  })
+
+
+  const approveTransaction = async (orderAmount) => {
+    console.log({address})
+    const config = await prepareWriteContract({
+      address: selectedUnderlayingAsset,
+      abi: [{
+        "constant": false,
+        "inputs": [
+            {
+                "name": "_spender",
+                "type": "address"
+            },
+            {
+                "name": "_value",
+                "type": "uint256"
+            }
+        ],
+        "name": "approve",
+        "outputs": [
+            {
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },],
+      functionName: 'approve',
+      args: [ address, orderAmount ],
+      chainId: mumbaiChainId,
+    })
+    const { hash } = await writeContract(config)
+    console.log(hash)
+    return hash
+  }
+
+  const runPlaceOrderTransaction = async (orderAmount) => {
+    console.log(Contracts.filter(contract => contract.contractName === 'OrderBook')[0].contractAddress)
+    const config = await prepareWriteContract({
+      address: Contracts.filter(contract => contract.contractName === 'OrderBook')[0].contractAddress,
+      abi: [{
+        "inputs":[
+          {
+            "internalType":"uint256",
+            "name":"price",
+            "type":"uint256"
+          },
+          {
+            "internalType":"uint256",
+            "name":"amount",
+            "type":"uint256"
+          },
+          {
+            "internalType":"address",
+            "name":"tokenIn",
+            "type":"address"
+          },
+          {
+            "internalType":"address",
+            "name":"tokenOut",
+            "type":"address"
+          }
+        ],
+        "name":"createOrder",
+        "outputs":[
+          {
+            "internalType":"uint256",
+            "name":"",
+            "type":"uint256"
+          }
+        ],
+        "stateMutability":"nonpayable",
+        "type":"function"
+      }],
+      functionName: 'createOrder',
+      args: [orderPrice, BigNumber.from(orderAmount), selectedUnderlayingAsset, selectedBuyAsset ],
+      chainId: mumbaiChainId,
+    })
+    const { hash } = await writeContract(config)
+    console.log(hash)
+    return hash
+  }
+
+  const handleApproveButton = () => {
     if(isConnected) {
       (async () => {
-        const config = await prepareWriteContract({
-          address: '0xb78806a3f7F0A45Ef8179841d13a304abf07f105',
-          abi: [{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"string","name":"","type":"string"},{"indexed":false,"internalType":"address","name":"","type":"address"}],"name":"construct","type":"event"},{"inputs":[],"name":"admin","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_orderNonce","type":"uint256"}],"name":"cancelOrder","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"price","type":"uint256"},{"internalType":"address","name":"fromToken","type":"address"},{"internalType":"address","name":"toToken","type":"address"}],"name":"createOrder","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"dedicatedMsgSender","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"fundsOwner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getExecutorAddress","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"orderNonce","type":"uint256"}],"name":"getOrder","outputs":[{"components":[{"internalType":"address","name":"user","type":"address"},{"internalType":"uint256","name":"price","type":"uint256"},{"internalType":"address","name":"fromToken","type":"address"},{"internalType":"address","name":"toToken","type":"address"},{"internalType":"bytes32","name":"orderId","type":"bytes32"},{"internalType":"bool","name":"isExecuted","type":"bool"}],"internalType":"struct OrderDatas","name":"","type":"tuple"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"ops","outputs":[{"internalType":"contract IOps","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"orderExecutor","outputs":[{"internalType":"contract OrderExecutor","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"orders","outputs":[{"internalType":"address","name":"user","type":"address"},{"internalType":"uint256","name":"price","type":"uint256"},{"internalType":"address","name":"fromToken","type":"address"},{"internalType":"address","name":"toToken","type":"address"},{"internalType":"bytes32","name":"orderId","type":"bytes32"},{"internalType":"bool","name":"isExecuted","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"orderNonce","type":"uint256"}],"name":"setExecuted","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"price","type":"uint256"}],"name":"setPrice","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"taskTreasury","outputs":[{"internalType":"contract ITaskTreasuryUpgradable","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_amount","type":"uint256"},{"internalType":"address","name":"_token","type":"address"}],"name":"withdrawFunds","outputs":[],"stateMutability":"nonpayable","type":"function"}],
-          functionName: 'createOrder',
-          args: [orderPrice, selectedUnderlayingAsset, selectedBuyAsset ],
-          chainId: 5,
-        })
-        const { hash } = await writeContract(config)
-        console.log(hash)
+        const approveHash = await approveTransaction(orderAmount)
       })()
     }
     else{
@@ -49,8 +145,16 @@ const Block = ({ strategyName, image, score, cryptoLogo, buyAssetState, underlay
     }
   }
 
-
-  const currentOraclePrice = ''
+  const handleCreateOrderButton = () => {
+    if(isConnected) {
+      (async () => {
+        const createOrderHash = await runPlaceOrderTransaction(orderAmount)
+      })()
+    }
+    else{
+      alert("Please connect your wallet")
+    }
+  }
 
   return (
     <>
@@ -88,12 +192,15 @@ const Block = ({ strategyName, image, score, cryptoLogo, buyAssetState, underlay
                   value={orderPrice}
                   onChange={handlePriceChange}
                 />
-                <button className="modal-btn btn btn-primary" onClick={placeOrder}>
-                  Valider
+                <button className="modal-btn btn btn-primary" onClick={handleApproveButton} >
+                  Approve 
+                </button>
+                <button className="modal-btn btn btn-primary" onClick={handleCreateOrderButton}>
+                  Place Order
                 </button>
             </div>
             <div className="modal-right">
-              <p>Price: {currentOraclePrice}</p>
+              <p>{price}</p>
             </div>
             {selectedBuyAsset && orderPrice && (
                 <p className="modal-strategyName">

@@ -13,7 +13,7 @@ import {
 } from "@web3modal/ethereum";
 import { Web3Modal } from "@web3modal/react";
 import { configureChains, createClient, WagmiConfig } from "wagmi";
-import { arbitrum, mainnet, polygon, goerli } from "wagmi/chains";
+import { arbitrum, mainnet, polygon, goerli, polygonMumbai } from "wagmi/chains";
 import { useSigner, useAccount } from 'wagmi'
 
 import { Web3Button } from "@web3modal/react";
@@ -48,11 +48,13 @@ import IntuButton from './Intu/IntuButton';
 //   }
 // };
 
-const chains = [goerli]
+const chains = [polygonMumbai]
 
 // Wagmi client
 const { provider } = configureChains(chains, [
-  walletConnectProvider({ projectId: "1bd4139fcba9da0ebb55e2d5ffa1d12d" }),
+  walletConnectProvider({ 
+    projectId: "1bd4139fcba9da0ebb55e2d5ffa1d12d",
+  }),
 ]);
 const wagmiClient = createClient({
   autoConnect: true,

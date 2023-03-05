@@ -37,4 +37,11 @@ const Protocols = [
     },
 ];
 
-export { Assets, Protocols }
+const Contracts = [
+    {
+        'contractName': 'OrderBook',
+        'contractAddress': '0x4cfa7d50806a7B2BF0aA7C7a3af421Fb10400449'
+    }
+]
+
+export { Assets, Protocols, Contracts }
