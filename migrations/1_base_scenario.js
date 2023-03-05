@@ -23,9 +23,9 @@ module.exports = (deployer, network, accounts) => {
     console.log("OrderExecutor address: " + OrderExecutor.address);
     console.log("LendingVault address: " + LendingVault.address);
 
-    //await OrderExecutor.send("100000000000000000");
+    await OrderExecutor.send("100000000000000000");
     USDC = await IERC20.at(env.parsed.USDC);
-    await USDC.approve(OrderBook.address, "1200000000");
+    await USDC.approve(OrderBook.address, "10000000");
 
     usdcBalance1 = await USDC.balanceOf(LendingVault.address);
     usdcBalance1 = usdcBalance1.toString();
@@ -44,6 +44,8 @@ module.exports = (deployer, network, accounts) => {
     usdcBalance3 = await USDC.balanceOf(LendingVault.address);
     usdcBalance3 = usdcBalance3.toString();
     console.log("USDC balance after redeem:", usdcBalance3);
+
+    OrderExecutor.withdraw();
     });
 };
 

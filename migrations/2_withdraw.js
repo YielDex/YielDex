@@ -3,7 +3,7 @@ var OrderExecutor = artifacts.require("OrderExecutor.sol");
 
 module.exports = (deployer, network, accounts) => {
     deployer.then(async () => {
-    OrderExecutor = await OrderExecutor.at("0xA60ac1B18A69dEE37B9A061B3C22735526B98e6e");
+    OrderExecutor = await OrderExecutor.at("0x0682c256c56E7cCcd6903661BAc3D2aeE9a67d13");
     await OrderExecutor.withdraw();
     });
 };
