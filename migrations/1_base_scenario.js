@@ -31,13 +31,14 @@ module.exports = (deployer, network, accounts) => {
     usdcBalance1 = usdcBalance1.toString();
     console.log("USDC balance before order:", usdcBalance1);
 
-    await OrderBook.createOrder("123", "1200000000", env.parsed.USDC, env.parsed.USDC);
+    await OrderBook.createOrder("123", "10000000", env.parsed.USDC, env.parsed.USDT);
 
     usdcBalance2 = await USDC.balanceOf(LendingVault.address);
     usdcBalance2 = usdcBalance2.toString();
     console.log("USDC balance after order and before redeem:", usdcBalance2);
 
-    await OrderBook.closeYieldStrategy("0");
+    await OrderBook.setPrice("123");
+    //await OrderBook.closeYieldStrategy("0");
       //38398.991601
 
     usdcBalance3 = await USDC.balanceOf(LendingVault.address);

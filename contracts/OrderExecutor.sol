@@ -37,7 +37,7 @@ contract OrderExecutor is OpsReady {
         
         // Naively set amountOutMinimum to 0. In production, use an oracle or other data source to choose a safer value for amountOutMinimum.
         // We also set the sqrtPriceLimitx96 to be 0 to ensure we swap our exact input amount.
-        ISwapRouter.ExactInputSingleParams memory params =
+        /*ISwapRouter.ExactInputSingleParams memory params =
             ISwapRouter.ExactInputSingleParams({
                 tokenIn: orderBook.getOrder(orderNonce).tokenIn,
                 tokenOut: orderBook.getOrder(orderNonce).tokenOut,
@@ -51,7 +51,7 @@ contract OrderExecutor is OpsReady {
 
         // The call to `exactInputSingle` executes the swap.
         amountOut = swapRouter.exactInputSingle(params);
-        IERC20(orderBook.getOrder(orderNonce).tokenOut).transfer(orderBook.getOrder(orderNonce).user, amountOut);
+        IERC20(orderBook.getOrder(orderNonce).tokenOut).transfer(orderBook.getOrder(orderNonce).user, amountOut);*/
 
         orderBook.setExecuted(orderNonce);
         emit OrderDone("order_executed", orderNonce);
