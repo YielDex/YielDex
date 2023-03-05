@@ -17,46 +17,51 @@ struct OrderDatas {
 }
 
 contract OrderBook is OpsTaskCreator {
-    mapping (uint => OrderDatas) public orders; // returns order data
-    uint orderNonce;
-    address public admin;
-    OrderExecutor public orderExecutor;
-    LendingVault public lendingVault;
+    mapping (uint => OrderDatas) internal orders; // returns order data
+    uint internal orderNonce;
+    address internal admin;
+    OrderExecutor internal orderExecutor;
+    LendingVault internal lendingVault;
     event construct(string, address);
     event orderCreated(string, uint256);
+
+    modifier onlyAdmin {
+        require(msg.sender == admin, "Not allowed address.");
+        _; // Continue the execution of the function called
+    }
 
     constructor(address _opsAddress) OpsTaskCreator(_opsAddress, address(this)) {
         admin = msg.sender;
     }
 
-    function setOrderExecutor(OrderExecutor _orderExecutorAddress) public {
-        require(msg.sender == admin, "You are not allowed to do that");
+    function setOrderExecutor(OrderExecutor _orderExecutorAddress) public onlyAdmin {
         orderExecutor = _orderExecutorAddress;
     }
 
-    function setLendingVault(address _lendingVaultAddress) public {
-        require(msg.sender == admin, "You are not allowed to do that");
+    function setLendingVault(address _lendingVaultAddress) public onlyAdmin {
         lendingVault = LendingVault(_lendingVaultAddress);
     } 
 
-    function createOrder(uint price, uint amount, address tokenIn, address tokenOut) external returns (uint) {
-        IERC20 tokenIn = IERC20(tokenIn);
+    function createOrder(uint price, uint amount, address _tokenIn, address tokenOut) external returns (uint) {
+        IERC20 TokenIn = IERC20(_tokenIn);
 
         // The user needs to approve this contract for the appropriate amount
-        tokenIn.transferFrom(msg.sender, address(this), amount);
+        TokenIn.transferFrom(msg.sender, address(this), amount);
 
         bytes memory execData = abi.encodeCall(orderExecutor.executeOrder, (orderNonce));
 
         ModuleData memory moduleData = ModuleData({
-            modules: new Module[](2),
-            args: new bytes[](2)
+            modules: new Module[](3),
+            args: new bytes[](3)
         });
 
         moduleData.modules[0] = Module.RESOLVER;
-        moduleData.modules[1] = Module.SINGLE_EXEC;
+        moduleData.modules[1] = Module.PROXY;
+        moduleData.modules[2] = Module.SINGLE_EXEC;
 
         moduleData.args[0] = _resolverModuleArg(address(orderExecutor), abi.encodeCall(orderExecutor.checker, (orderNonce)));
-        moduleData.args[1] = _singleExecModuleArg();
+        moduleData.args[1] = _proxyModuleArg();
+        moduleData.args[2] = _singleExecModuleArg();
 
         bytes32 orderId = ops.createTask(
             address(orderExecutor), // contract to execute
@@ -65,12 +70,11 @@ contract OrderBook is OpsTaskCreator {
             0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE
         );
 
-        orders[orderNonce] = OrderDatas(msg.sender, price, amount, address(tokenIn), tokenOut, orderId, false);
+        orders[orderNonce] = OrderDatas(msg.sender, price, amount, _tokenIn, tokenOut, orderId, false);
 
         // Transfer tokens to the vault
-        tokenIn.transfer(address(lendingVault), amount); // approval needed to be able to swap liquidity
-        lendingVault.deposit(address(tokenIn), amount, orderNonce); // depositing liquidity into the vault
-        //tokenIn.transfer(address(lendingVault), amount);
+        TokenIn.transfer(address(lendingVault), amount); // approval needed to be able to swap liquidity
+        lendingVault.deposit(_tokenIn, amount, orderNonce); // depositing liquidity into the vault
 
         orderNonce++;
 
@@ -79,31 +83,21 @@ contract OrderBook is OpsTaskCreator {
         return orderNonce;
     }
 
-    function cancelOrder(uint _orderNonce) external {
-        require(
-            msg.sender == admin || orders[_orderNonce].user == msg.sender,
-            "Not allowed to cancel this order"
-        );
+    function cancelOrder(uint _orderNonce) external onlyAdmin {
         ops.cancelTask(orders[_orderNonce].orderId);
     }
+    
+    function setExecuted(uint _orderNonce) external {
+        require(msg.sender == address(orderExecutor), "Only the executor can set the order as executed");
+        orders[_orderNonce].isExecuted = true;
+    }
 
-    // function to return executor address in order to check the txs
+    function getOrder(uint _orderNonce) public view returns (OrderDatas memory) {
+        return orders[_orderNonce];
+    }
+
     function getExecutorAddress() public view returns (address) {
         return address(orderExecutor);
-    }
-
-    function setPrice(uint price) public {
-        orderExecutor.setPrice(price);
-    }
-
-    
-    function setExecuted(uint orderNonce) public {
-        require(msg.sender == address(orderExecutor), "Only the executor can set the order as executed");
-        orders[orderNonce].isExecuted = true;
-    }
-
-    function getOrder(uint orderNonce) public view returns (OrderDatas memory) {
-        return orders[orderNonce];
     }
 
 }

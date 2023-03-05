@@ -8,35 +8,38 @@ import "./uniswap/ISwapRouter.sol";
 
 contract OrderExecutor is OpsReady {
 
-    uint price;
-    address deployer;
+    uint public price; // temporary, testing purposes only
+    address public deployer;
 
     OrderBook public orderBook;
     ISwapRouter public immutable swapRouter;
     LendingVault public lendingVault;
 
     event OrderDone(string, uint256);
-    event SwapPreparation(string, uint256);
-    event SwapTestAm(string, uint256);
+
+    modifier onlyDeployer {
+        require(msg.sender == deployer, "Not allowed address.");
+        _; // Continue the execution of the function called
+    }
 
     constructor(address _ops, address _taskCreator, address _swapRouter) OpsReady(_ops, _taskCreator) {
-        price = 100; // arbitrary price
+        price = 100; // arbitrary price for testing
         deployer = msg.sender;
         orderBook = OrderBook(_taskCreator);
         swapRouter = ISwapRouter(_swapRouter);
     }
 
-    function setPrice(uint _price) public {
+    function setPrice(uint _price) public onlyDeployer {
         price = _price;
     }
 
     receive() external payable {}
 
-    function setLendingVault(address _lendingVault) public {
+    function setLendingVault(address _lendingVault) public onlyDeployer {
         lendingVault = LendingVault(_lendingVault);
     }
 
-    function executeOrder(uint orderNonce) external /*onlyDedicatedMsgSender*/ {
+    function executeOrder(uint orderNonce) external onlyDedicatedMsgSender {
         // execute order with orderNonce here
         uint256 amountWithdrawed = lendingVault.withdraw(orderBook.getOrder(orderNonce).tokenIn, orderNonce);
 
@@ -68,15 +71,12 @@ contract OrderExecutor is OpsReady {
     }
 
     function checker(uint orderNonce) external view returns (bool canExec, bytes memory execPayload) {
-        // check that liquidity is still into the vault
-        // require(vault.getLiquidity() > 0, "No liquidity");
         canExec = orderBook.getOrder(orderNonce).price == price; // The condition that needs to be true for the task to be executed, you can filter the condition with the orderId
         execPayload = abi.encodeCall(OrderExecutor.executeOrder, orderNonce); // The function that you want to call on the contract
     }
 
     // Only used for testing
-    function withdraw() public {
-        require(msg.sender == deployer, "not allowed address");
+    function withdraw() public onlyDeployer {
         payable(msg.sender).transfer(address(this).balance);
     }
 

@@ -10,20 +10,22 @@ contract LendingVault {
     AaveV3ERC4626Factory public immutable aaveFactory;
     IPool public immutable aavePool;
     IPoolAddressesProvider public immutable aavePoolAddressesProvider;
+
     address public immutable orderBookAddress;
+
+    // In the future, there will be a mapping for each strategies for one asset rather than this one
     mapping(ERC20 => ERC4626) public erc4626s;
     mapping(uint256 => uint256) public orderShares;
+    
     event Shares(uint256 shares);
-    //IRewardsController public immutable rewardsController;
-    //address public constant rewardRecipient = address(0x01);
 
     constructor(address _iPoolAddressesProviderAddress, address _temporaryTokenAddress, address _orderBookAddress) {
         orderBookAddress = _orderBookAddress;
         aavePoolAddressesProvider = IPoolAddressesProvider(_iPoolAddressesProviderAddress);
         aavePool = IPool(aavePoolAddressesProvider.getPool());
-        //rewardsController = IRewardsController(aavePoolAddressesProvider.getRewardsController());
-        aaveFactory = new AaveV3ERC4626Factory(aavePool); // will continue aave integration later
-        //testAsset
+        aaveFactory = new AaveV3ERC4626Factory(aavePool);
+
+        // testAsset that we want to include from from start
         ERC20 usdcERC20 = ERC20(_temporaryTokenAddress);
         erc4626s[usdcERC20] = aaveFactory.createERC4626(usdcERC20);
     }

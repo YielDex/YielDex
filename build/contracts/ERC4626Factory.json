@@ -73,24 +73,24 @@
     "absolutePath": "project:/contracts/yield-daddy/base/ERC4626Factory.sol",
     "exportedSymbols": {
       "Bytes32AddressLib": [
-        5149
+        4642
       ],
       "ERC20": [
-        5110
+        4603
       ],
       "ERC4626": [
-        4722
+        4215
       ],
       "ERC4626Factory": [
-        7310
+        6803
       ]
     },
-    "id": 7311,
+    "id": 6804,
     "license": "AGPL-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 7240,
+        "id": 6733,
         "literals": [
           "solidity",
           "^",
@@ -98,26 +98,26 @@
           ".19"
         ],
         "nodeType": "PragmaDirective",
-        "src": "37:24:33"
+        "src": "37:24:28"
       },
       {
         "absolutePath": "project:/contracts/solmate/tokens/ERC20.sol",
         "file": "../../solmate/tokens/ERC20.sol",
-        "id": 7242,
+        "id": 6735,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 7311,
-        "sourceUnit": 5111,
-        "src": "63:53:33",
+        "scope": 6804,
+        "sourceUnit": 4604,
+        "src": "63:53:28",
         "symbolAliases": [
           {
             "foreign": {
-              "id": 7241,
+              "id": 6734,
               "name": "ERC20",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 5110,
-              "src": "71:5:33",
+              "referencedDeclaration": 4603,
+              "src": "71:5:28",
               "typeDescriptions": {}
             },
             "nameLocation": "-1:-1:-1"
@@ -128,21 +128,21 @@
       {
         "absolutePath": "project:/contracts/solmate/mixins/ERC4626.sol",
         "file": "../../solmate/mixins/ERC4626.sol",
-        "id": 7244,
+        "id": 6737,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 7311,
-        "sourceUnit": 4723,
-        "src": "117:57:33",
+        "scope": 6804,
+        "sourceUnit": 4216,
+        "src": "117:57:28",
         "symbolAliases": [
           {
             "foreign": {
-              "id": 7243,
+              "id": 6736,
               "name": "ERC4626",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 4722,
-              "src": "125:7:33",
+              "referencedDeclaration": 4215,
+              "src": "125:7:28",
               "typeDescriptions": {}
             },
             "nameLocation": "-1:-1:-1"
@@ -153,21 +153,21 @@
       {
         "absolutePath": "project:/contracts/solmate/utils/Bytes32AddressLib.sol",
         "file": "../../solmate/utils/Bytes32AddressLib.sol",
-        "id": 7246,
+        "id": 6739,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 7311,
-        "sourceUnit": 5150,
-        "src": "175:76:33",
+        "scope": 6804,
+        "sourceUnit": 4643,
+        "src": "175:76:28",
         "symbolAliases": [
           {
             "foreign": {
-              "id": 7245,
+              "id": 6738,
               "name": "Bytes32AddressLib",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 5149,
-              "src": "183:17:33",
+              "referencedDeclaration": 4642,
+              "src": "183:17:28",
               "typeDescriptions": {}
             },
             "nameLocation": "-1:-1:-1"
@@ -182,40 +182,40 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "documentation": {
-          "id": 7247,
+          "id": 6740,
           "nodeType": "StructuredDocumentation",
-          "src": "253:219:33",
+          "src": "253:219:28",
           "text": "@title ERC4626Factory\n @author zefram.eth\n @notice Abstract base contract for deploying ERC4626 wrappers\n @dev Uses CREATE2 deterministic deployment, so there can only be a single\n vault for each asset."
         },
         "fullyImplemented": false,
-        "id": 7310,
+        "id": 6803,
         "linearizedBaseContracts": [
-          7310
+          6803
         ],
         "name": "ERC4626Factory",
-        "nameLocation": "490:14:33",
+        "nameLocation": "490:14:28",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "global": false,
-            "id": 7250,
+            "id": 6743,
             "libraryName": {
-              "id": 7248,
+              "id": 6741,
               "name": "Bytes32AddressLib",
               "nameLocations": [
-                "700:17:33"
+                "700:17:28"
               ],
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 5149,
-              "src": "700:17:33"
+              "referencedDeclaration": 4642,
+              "src": "700:17:28"
             },
             "nodeType": "UsingForDirective",
-            "src": "694:36:33",
+            "src": "694:36:28",
             "typeName": {
-              "id": 7249,
+              "id": 6742,
               "name": "bytes32",
               "nodeType": "ElementaryTypeName",
-              "src": "722:7:33",
+              "src": "722:7:28",
               "typeDescriptions": {
                 "typeIdentifier": "t_bytes32",
                 "typeString": "bytes32"
@@ -225,53 +225,53 @@
           {
             "anonymous": false,
             "documentation": {
-              "id": 7251,
+              "id": 6744,
               "nodeType": "StructuredDocumentation",
-              "src": "912:163:33",
+              "src": "912:163:28",
               "text": "@notice Emitted when a new ERC4626 vault has been created\n @param asset The base asset used by the vault\n @param vault The vault that was created"
             },
             "eventSelector": "cbd4e5d1362721c7fd10daaabb1a046344447d4798be55684b8a6b4fc1765d72",
-            "id": 7259,
+            "id": 6752,
             "name": "CreateERC4626",
-            "nameLocation": "1086:13:33",
+            "nameLocation": "1086:13:28",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 7258,
+              "id": 6751,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7254,
+                  "id": 6747,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "asset",
-                  "nameLocation": "1114:5:33",
+                  "nameLocation": "1114:5:28",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7259,
-                  "src": "1100:19:33",
+                  "scope": 6752,
+                  "src": "1100:19:28",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_ERC20_$5110",
+                    "typeIdentifier": "t_contract$_ERC20_$4603",
                     "typeString": "contract ERC20"
                   },
                   "typeName": {
-                    "id": 7253,
+                    "id": 6746,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 7252,
+                      "id": 6745,
                       "name": "ERC20",
                       "nameLocations": [
-                        "1100:5:33"
+                        "1100:5:28"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 5110,
-                      "src": "1100:5:33"
+                      "referencedDeclaration": 4603,
+                      "src": "1100:5:28"
                     },
-                    "referencedDeclaration": 5110,
-                    "src": "1100:5:33",
+                    "referencedDeclaration": 4603,
+                    "src": "1100:5:28",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ERC20_$5110",
+                      "typeIdentifier": "t_contract$_ERC20_$4603",
                       "typeString": "contract ERC20"
                     }
                   },
@@ -279,270 +279,270 @@
                 },
                 {
                   "constant": false,
-                  "id": 7257,
+                  "id": 6750,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "vault",
-                  "nameLocation": "1129:5:33",
+                  "nameLocation": "1129:5:28",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7259,
-                  "src": "1121:13:33",
+                  "scope": 6752,
+                  "src": "1121:13:28",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_ERC4626_$4722",
+                    "typeIdentifier": "t_contract$_ERC4626_$4215",
                     "typeString": "contract ERC4626"
                   },
                   "typeName": {
-                    "id": 7256,
+                    "id": 6749,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 7255,
+                      "id": 6748,
                       "name": "ERC4626",
                       "nameLocations": [
-                        "1121:7:33"
+                        "1121:7:28"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 4722,
-                      "src": "1121:7:33"
+                      "referencedDeclaration": 4215,
+                      "src": "1121:7:28"
                     },
-                    "referencedDeclaration": 4722,
-                    "src": "1121:7:33",
+                    "referencedDeclaration": 4215,
+                    "src": "1121:7:28",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ERC4626_$4722",
+                      "typeIdentifier": "t_contract$_ERC4626_$4215",
                       "typeString": "contract ERC4626"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "1099:36:33"
+              "src": "1099:36:28"
             },
-            "src": "1080:56:33"
+            "src": "1080:56:28"
           },
           {
             "documentation": {
-              "id": 7260,
+              "id": 6753,
               "nodeType": "StructuredDocumentation",
-              "src": "1330:328:33",
+              "src": "1330:328:28",
               "text": "@notice Creates an ERC4626 vault for an asset\n @dev Uses CREATE2 deterministic deployment, so there can only be a single\n vault for each asset. Will revert if a vault has already been deployed for the asset.\n @param asset The base asset used by the vault\n @return vault The vault that was created"
             },
             "functionSelector": "abeccaa4",
-            "id": 7269,
+            "id": 6762,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "createERC4626",
-            "nameLocation": "1672:13:33",
+            "nameLocation": "1672:13:28",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7264,
+              "id": 6757,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7263,
+                  "id": 6756,
                   "mutability": "mutable",
                   "name": "asset",
-                  "nameLocation": "1692:5:33",
+                  "nameLocation": "1692:5:28",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7269,
-                  "src": "1686:11:33",
+                  "scope": 6762,
+                  "src": "1686:11:28",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_ERC20_$5110",
+                    "typeIdentifier": "t_contract$_ERC20_$4603",
                     "typeString": "contract ERC20"
                   },
                   "typeName": {
-                    "id": 7262,
+                    "id": 6755,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 7261,
+                      "id": 6754,
                       "name": "ERC20",
                       "nameLocations": [
-                        "1686:5:33"
+                        "1686:5:28"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 5110,
-                      "src": "1686:5:33"
+                      "referencedDeclaration": 4603,
+                      "src": "1686:5:28"
                     },
-                    "referencedDeclaration": 5110,
-                    "src": "1686:5:33",
+                    "referencedDeclaration": 4603,
+                    "src": "1686:5:28",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ERC20_$5110",
+                      "typeIdentifier": "t_contract$_ERC20_$4603",
                       "typeString": "contract ERC20"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "1685:13:33"
+              "src": "1685:13:28"
             },
             "returnParameters": {
-              "id": 7268,
+              "id": 6761,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7267,
+                  "id": 6760,
                   "mutability": "mutable",
                   "name": "vault",
-                  "nameLocation": "1733:5:33",
+                  "nameLocation": "1733:5:28",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7269,
-                  "src": "1725:13:33",
+                  "scope": 6762,
+                  "src": "1725:13:28",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_ERC4626_$4722",
+                    "typeIdentifier": "t_contract$_ERC4626_$4215",
                     "typeString": "contract ERC4626"
                   },
                   "typeName": {
-                    "id": 7266,
+                    "id": 6759,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 7265,
+                      "id": 6758,
                       "name": "ERC4626",
                       "nameLocations": [
-                        "1725:7:33"
+                        "1725:7:28"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 4722,
-                      "src": "1725:7:33"
+                      "referencedDeclaration": 4215,
+                      "src": "1725:7:28"
                     },
-                    "referencedDeclaration": 4722,
-                    "src": "1725:7:33",
+                    "referencedDeclaration": 4215,
+                    "src": "1725:7:28",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ERC4626_$4722",
+                      "typeIdentifier": "t_contract$_ERC4626_$4215",
                       "typeString": "contract ERC4626"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "1724:15:33"
+              "src": "1724:15:28"
             },
-            "scope": 7310,
-            "src": "1663:77:33",
+            "scope": 6803,
+            "src": "1663:77:28",
             "stateMutability": "nonpayable",
             "virtual": true,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 7270,
+              "id": 6763,
               "nodeType": "StructuredDocumentation",
-              "src": "1746:283:33",
+              "src": "1746:283:28",
               "text": "@notice Computes the address of the ERC4626 vault corresponding to an asset. Returns\n a valid result regardless of whether the vault has already been deployed.\n @param asset The base asset used by the vault\n @return vault The vault corresponding to the asset"
             },
             "functionSelector": "80cfde3c",
-            "id": 7279,
+            "id": 6772,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "computeERC4626Address",
-            "nameLocation": "2043:21:33",
+            "nameLocation": "2043:21:28",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7274,
+              "id": 6767,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7273,
+                  "id": 6766,
                   "mutability": "mutable",
                   "name": "asset",
-                  "nameLocation": "2071:5:33",
+                  "nameLocation": "2071:5:28",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7279,
-                  "src": "2065:11:33",
+                  "scope": 6772,
+                  "src": "2065:11:28",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_ERC20_$5110",
+                    "typeIdentifier": "t_contract$_ERC20_$4603",
                     "typeString": "contract ERC20"
                   },
                   "typeName": {
-                    "id": 7272,
+                    "id": 6765,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 7271,
+                      "id": 6764,
                       "name": "ERC20",
                       "nameLocations": [
-                        "2065:5:33"
+                        "2065:5:28"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 5110,
-                      "src": "2065:5:33"
+                      "referencedDeclaration": 4603,
+                      "src": "2065:5:28"
                     },
-                    "referencedDeclaration": 5110,
-                    "src": "2065:5:33",
+                    "referencedDeclaration": 4603,
+                    "src": "2065:5:28",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ERC20_$5110",
+                      "typeIdentifier": "t_contract$_ERC20_$4603",
                       "typeString": "contract ERC20"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "2064:13:33"
+              "src": "2064:13:28"
             },
             "returnParameters": {
-              "id": 7278,
+              "id": 6771,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7277,
+                  "id": 6770,
                   "mutability": "mutable",
                   "name": "vault",
-                  "nameLocation": "2117:5:33",
+                  "nameLocation": "2117:5:28",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7279,
-                  "src": "2109:13:33",
+                  "scope": 6772,
+                  "src": "2109:13:28",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_ERC4626_$4722",
+                    "typeIdentifier": "t_contract$_ERC4626_$4215",
                     "typeString": "contract ERC4626"
                   },
                   "typeName": {
-                    "id": 7276,
+                    "id": 6769,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 7275,
+                      "id": 6768,
                       "name": "ERC4626",
                       "nameLocations": [
-                        "2109:7:33"
+                        "2109:7:28"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 4722,
-                      "src": "2109:7:33"
+                      "referencedDeclaration": 4215,
+                      "src": "2109:7:28"
                     },
-                    "referencedDeclaration": 4722,
-                    "src": "2109:7:33",
+                    "referencedDeclaration": 4215,
+                    "src": "2109:7:28",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ERC4626_$4722",
+                      "typeIdentifier": "t_contract$_ERC4626_$4215",
                       "typeString": "contract ERC4626"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "2108:15:33"
+              "src": "2108:15:28"
             },
-            "scope": 7310,
-            "src": "2034:90:33",
+            "scope": 6803,
+            "src": "2034:90:28",
             "stateMutability": "view",
             "virtual": true,
             "visibility": "external"
           },
           {
             "body": {
-              "id": 7308,
+              "id": 6801,
               "nodeType": "Block",
-              "src": "2896:280:33",
+              "src": "2896:280:28",
               "statements": [
                 {
                   "expression": {
@@ -557,14 +557,14 @@
                                 "arguments": [
                                   {
                                     "hexValue": "30784646",
-                                    "id": 7292,
+                                    "id": 6785,
                                     "isConstant": false,
                                     "isLValue": false,
                                     "isPure": true,
                                     "kind": "number",
                                     "lValueRequested": false,
                                     "nodeType": "Literal",
-                                    "src": "2947:4:33",
+                                    "src": "2947:4:28",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_rational_255_by_1",
                                       "typeString": "int_const 255"
@@ -579,26 +579,26 @@
                                       "typeString": "int_const 255"
                                     }
                                   ],
-                                  "id": 7291,
+                                  "id": 6784,
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": true,
                                   "lValueRequested": false,
                                   "nodeType": "ElementaryTypeNameExpression",
-                                  "src": "2940:6:33",
+                                  "src": "2940:6:28",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_type$_t_bytes1_$",
                                     "typeString": "type(bytes1)"
                                   },
                                   "typeName": {
-                                    "id": 7290,
+                                    "id": 6783,
                                     "name": "bytes1",
                                     "nodeType": "ElementaryTypeName",
-                                    "src": "2940:6:33",
+                                    "src": "2940:6:28",
                                     "typeDescriptions": {}
                                   }
                                 },
-                                "id": 7293,
+                                "id": 6786,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": true,
@@ -607,7 +607,7 @@
                                 "nameLocations": [],
                                 "names": [],
                                 "nodeType": "FunctionCall",
-                                "src": "2940:12:33",
+                                "src": "2940:12:28",
                                 "tryCall": false,
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_bytes1",
@@ -617,14 +617,14 @@
                               {
                                 "arguments": [
                                   {
-                                    "id": 7296,
+                                    "id": 6789,
                                     "name": "this",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
                                     "referencedDeclaration": 4294967268,
-                                    "src": "2962:4:33",
+                                    "src": "2962:4:28",
                                     "typeDescriptions": {
-                                      "typeIdentifier": "t_contract$_ERC4626Factory_$7310",
+                                      "typeIdentifier": "t_contract$_ERC4626Factory_$6803",
                                       "typeString": "contract ERC4626Factory"
                                     }
                                   }
@@ -632,30 +632,30 @@
                                 "expression": {
                                   "argumentTypes": [
                                     {
-                                      "typeIdentifier": "t_contract$_ERC4626Factory_$7310",
+                                      "typeIdentifier": "t_contract$_ERC4626Factory_$6803",
                                       "typeString": "contract ERC4626Factory"
                                     }
                                   ],
-                                  "id": 7295,
+                                  "id": 6788,
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": true,
                                   "lValueRequested": false,
                                   "nodeType": "ElementaryTypeNameExpression",
-                                  "src": "2954:7:33",
+                                  "src": "2954:7:28",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_type$_t_address_$",
                                     "typeString": "type(address)"
                                   },
                                   "typeName": {
-                                    "id": 7294,
+                                    "id": 6787,
                                     "name": "address",
                                     "nodeType": "ElementaryTypeName",
-                                    "src": "2954:7:33",
+                                    "src": "2954:7:28",
                                     "typeDescriptions": {}
                                   }
                                 },
-                                "id": 7297,
+                                "id": 6790,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
@@ -664,7 +664,7 @@
                                 "nameLocations": [],
                                 "names": [],
                                 "nodeType": "FunctionCall",
-                                "src": "2954:13:33",
+                                "src": "2954:13:28",
                                 "tryCall": false,
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_address",
@@ -675,14 +675,14 @@
                                 "arguments": [
                                   {
                                     "hexValue": "30",
-                                    "id": 7300,
+                                    "id": 6793,
                                     "isConstant": false,
                                     "isLValue": false,
                                     "isPure": true,
                                     "kind": "number",
                                     "lValueRequested": false,
                                     "nodeType": "Literal",
-                                    "src": "2977:1:33",
+                                    "src": "2977:1:28",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_rational_0_by_1",
                                       "typeString": "int_const 0"
@@ -697,26 +697,26 @@
                                       "typeString": "int_const 0"
                                     }
                                   ],
-                                  "id": 7299,
+                                  "id": 6792,
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": true,
                                   "lValueRequested": false,
                                   "nodeType": "ElementaryTypeNameExpression",
-                                  "src": "2969:7:33",
+                                  "src": "2969:7:28",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_type$_t_bytes32_$",
                                     "typeString": "type(bytes32)"
                                   },
                                   "typeName": {
-                                    "id": 7298,
+                                    "id": 6791,
                                     "name": "bytes32",
                                     "nodeType": "ElementaryTypeName",
-                                    "src": "2969:7:33",
+                                    "src": "2969:7:28",
                                     "typeDescriptions": {}
                                   }
                                 },
-                                "id": 7301,
+                                "id": 6794,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": true,
@@ -725,7 +725,7 @@
                                 "nameLocations": [],
                                 "names": [],
                                 "nodeType": "FunctionCall",
-                                "src": "2969:10:33",
+                                "src": "2969:10:28",
                                 "tryCall": false,
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_bytes32",
@@ -733,12 +733,12 @@
                                 }
                               },
                               {
-                                "id": 7302,
+                                "id": 6795,
                                 "name": "bytecodeHash",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 7282,
-                                "src": "2981:12:33",
+                                "referencedDeclaration": 6775,
+                                "src": "2981:12:28",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_bytes32",
                                   "typeString": "bytes32"
@@ -765,32 +765,32 @@
                                 }
                               ],
                               "expression": {
-                                "id": 7288,
+                                "id": 6781,
                                 "name": "abi",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
                                 "referencedDeclaration": 4294967295,
-                                "src": "2923:3:33",
+                                "src": "2923:3:28",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_magic_abi",
                                   "typeString": "abi"
                                 }
                               },
-                              "id": 7289,
+                              "id": 6782,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
                               "lValueRequested": false,
-                              "memberLocation": "2927:12:33",
+                              "memberLocation": "2927:12:28",
                               "memberName": "encodePacked",
                               "nodeType": "MemberAccess",
-                              "src": "2923:16:33",
+                              "src": "2923:16:28",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_function_abiencodepacked_pure$__$returns$_t_bytes_memory_ptr_$",
                                 "typeString": "function () pure returns (bytes memory)"
                               }
                             },
-                            "id": 7303,
+                            "id": 6796,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -799,7 +799,7 @@
                             "nameLocations": [],
                             "names": [],
                             "nodeType": "FunctionCall",
-                            "src": "2923:71:33",
+                            "src": "2923:71:28",
                             "tryCall": false,
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes_memory_ptr",
@@ -814,18 +814,18 @@
                               "typeString": "bytes memory"
                             }
                           ],
-                          "id": 7287,
+                          "id": 6780,
                           "name": "keccak256",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 4294967288,
-                          "src": "2913:9:33",
+                          "src": "2913:9:28",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
                             "typeString": "function (bytes memory) pure returns (bytes32)"
                           }
                         },
-                        "id": 7304,
+                        "id": 6797,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -834,29 +834,29 @@
                         "nameLocations": [],
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "2913:82:33",
+                        "src": "2913:82:28",
                         "tryCall": false,
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
                         }
                       },
-                      "id": 7305,
+                      "id": 6798,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
-                      "memberLocation": "3107:15:33",
+                      "memberLocation": "3107:15:28",
                       "memberName": "fromLast20Bytes",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5132,
-                      "src": "2913:209:33",
+                      "referencedDeclaration": 4625,
+                      "src": "2913:209:28",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_pure$_t_bytes32_$returns$_t_address_$attached_to$_t_bytes32_$",
                         "typeString": "function (bytes32) pure returns (address)"
                       }
                     },
-                    "id": 7306,
+                    "id": 6799,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -865,46 +865,46 @@
                     "nameLocations": [],
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "2913:211:33",
+                    "src": "2913:211:28",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "functionReturnParameters": 7286,
-                  "id": 7307,
+                  "functionReturnParameters": 6779,
+                  "id": 6800,
                   "nodeType": "Return",
-                  "src": "2906:218:33"
+                  "src": "2906:218:28"
                 }
               ]
             },
             "documentation": {
-              "id": 7280,
+              "id": 6773,
               "nodeType": "StructuredDocumentation",
-              "src": "2318:479:33",
+              "src": "2318:479:28",
               "text": "@notice Computes the address of a contract deployed by this factory using CREATE2, given\n the bytecode hash of the contract. Can also be used to predict addresses of contracts yet to\n be deployed.\n @dev Always uses bytes32(0) as the salt\n @param bytecodeHash The keccak256 hash of the creation code of the contract being deployed concatenated\n with the ABI-encoded constructor arguments.\n @return The address of the deployed contract"
             },
-            "id": 7309,
+            "id": 6802,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "_computeCreate2Address",
-            "nameLocation": "2811:22:33",
+            "nameLocation": "2811:22:28",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7283,
+              "id": 6776,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7282,
+                  "id": 6775,
                   "mutability": "mutable",
                   "name": "bytecodeHash",
-                  "nameLocation": "2842:12:33",
+                  "nameLocation": "2842:12:28",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7309,
-                  "src": "2834:20:33",
+                  "scope": 6802,
+                  "src": "2834:20:28",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -912,10 +912,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 7281,
+                    "id": 6774,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2834:7:33",
+                    "src": "2834:7:28",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -924,21 +924,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2833:22:33"
+              "src": "2833:22:28"
             },
             "returnParameters": {
-              "id": 7286,
+              "id": 6779,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7285,
+                  "id": 6778,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7309,
-                  "src": "2887:7:33",
+                  "scope": 6802,
+                  "src": "2887:7:28",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -946,10 +946,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 7284,
+                    "id": 6777,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2887:7:33",
+                    "src": "2887:7:28",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -959,21 +959,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2886:9:33"
+              "src": "2886:9:28"
             },
-            "scope": 7310,
-            "src": "2802:374:33",
+            "scope": 6803,
+            "src": "2802:374:28",
             "stateMutability": "view",
             "virtual": true,
             "visibility": "internal"
           }
         ],
-        "scope": 7311,
-        "src": "472:2706:33",
+        "scope": 6804,
+        "src": "472:2706:28",
         "usedErrors": []
       }
     ],
-    "src": "37:3141:33"
+    "src": "37:3141:28"
   },
   "compiler": {
     "name": "solc",
@@ -981,7 +981,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.11",
-  "updatedAt": "2023-03-05T07:57:55.614Z",
+  "updatedAt": "2023-03-05T09:52:00.278Z",
   "devdoc": {
     "author": "zefram.eth",
     "details": "Uses CREATE2 deterministic deployment, so there can only be a single vault for each asset.",
