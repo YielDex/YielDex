@@ -110,20 +110,9 @@ const Home = () => {
       return `${firstPart}..${secondPart}`;
   }
 
-  // useEffect(() => {
-    
-
-
-  //   (async () => {
-  //     
-  //   })()
-      
-
-  // })
-
   return (
     <div className="main-content">
-      <h3 className="text-white main-title">MOMENTO</h3>
+      <h3 className="text-white main-title">YielDex</h3>
       <div className="flex-row">
           { isConnected && <p className="text-white">{shortenString(address)}</p> }
           <Web3Button/><br />

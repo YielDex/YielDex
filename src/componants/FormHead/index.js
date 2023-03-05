@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./styles.css";
+import { Assets } from "../../constants/Mumbai.assets";
 
 const FormHead = ({underlayingAssetState, buyAssetState}) => {
   
@@ -33,8 +34,10 @@ const FormHead = ({underlayingAssetState, buyAssetState}) => {
           onChange={handleAssetChange}
         >
           <option value="">Select an asset</option>
-          <option value="wBTC">wBTC</option>
-          <option value="ETH">ETH</option>
+          {Assets.map((asset) => {
+            return <option key={asset.assetAddress} value={asset.assetAddress}>{asset.assetName}</option>;
+          }
+          )}
         </select>
       </div>
       <div className="form-group">
@@ -47,8 +50,10 @@ const FormHead = ({underlayingAssetState, buyAssetState}) => {
           onChange={handleUnderlayingAssetChange}
         >
           <option value="">Select an asset</option>
-          <option value="USDC">USDC</option>
-          <option value="DAI">DAI</option>
+          {Assets.map((asset) => {
+            return <option key={asset.assetAddress} value={asset.assetAddress}>{asset.assetName}</option>;
+          }
+          )}
         </select>
       </div>
       <button className="btn btn-primary" type="submit">
