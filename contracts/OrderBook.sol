@@ -17,12 +17,11 @@ struct OrderDatas {
 }
 
 contract OrderBook is OpsTaskCreator {
-    mapping (uint => OrderDatas) internal orders; // returns order data
-    uint internal orderNonce;
-    address internal admin;
-    OrderExecutor internal orderExecutor;
-    LendingVault internal lendingVault;
-    event construct(string, address);
+    mapping (uint => OrderDatas) private orders; // returns order data
+    uint private orderNonce;
+    address private admin;
+    OrderExecutor private orderExecutor;
+    LendingVault private lendingVault;
     event orderCreated(string, uint256);
 
     modifier onlyAdmin {

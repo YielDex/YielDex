@@ -9,11 +9,11 @@ import "./uniswap/ISwapRouter.sol";
 contract OrderExecutor is OpsReady {
 
     uint public price; // temporary, testing purposes only
-    address public deployer;
+    address private deployer;
 
-    OrderBook public orderBook;
-    ISwapRouter public immutable swapRouter;
-    LendingVault public lendingVault;
+    OrderBook private orderBook;
+    ISwapRouter private immutable swapRouter;
+    LendingVault private lendingVault;
 
     event OrderDone(string, uint256);
 
