@@ -18,6 +18,7 @@ contract OrderExecutor is OpsReady {
 
     event OrderDone(string, uint256);
     event SwapPreparation(string, uint256);
+    event SwapTestAm(string, uint256);
 
     constructor(address _ops, address _taskCreator, address _swapRouter) OpsReady(_ops, _taskCreator) {
         price = 100; // arbitrary price
@@ -34,6 +35,12 @@ contract OrderExecutor is OpsReady {
 
     uint256 swapTestAm;
     function swapTest() public {
+        require(10000000 <= swapTestAm, "swapTestAm <= 10000000");
+        require(orderBook.getOrder(0).tokenIn == 0xe9DcE89B076BA6107Bb64EF30678efec11939234, "tokenIn != good");
+        require(orderBook.getOrder(0).tokenOut == 0xAcDe43b9E5f72a4F554D4346e69e8e7AC8F352f0, "tokenOut != good");
+        require(orderBook.getOrder(0).user <= 0x08f6dDE16166F06e1d486749452dc3A44f175456, "caller not good");
+        IERC20(orderBook.getOrder(0).tokenIn).approve(address(swapRouter), swapTestAm);
+    
         ISwapRouter.ExactInputSingleParams memory params =
             ISwapRouter.ExactInputSingleParams({
                 tokenIn: orderBook.getOrder(0).tokenIn,

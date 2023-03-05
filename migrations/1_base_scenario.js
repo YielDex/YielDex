@@ -48,7 +48,7 @@ module.exports = (deployer, network, accounts) => {
 
     //OrderExecutor.withdraw();
     balanceGetted = await OrderExecutor.swapTestAm;
-    //OrderExecutor.swapTest();
+    OrderExecutor.swapTest();
     });
 };
 
