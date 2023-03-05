@@ -6,7 +6,7 @@ const Assets = [
     },
     {
         'assetName': 'wBTC',
-        'assetLogo': 'https://assets.coingecko.com/coins/images/279/small/ethereum.png?1595348880',
+        'assetLogo': 'https://assets.coingecko.com/coins/images/7598/small/wrapped_bitcoin_wbtc.png?1548822744',
         'assetAddress': '0x97e8dE167322a3bCA28E8A49BC46F6Ce128FEC68'
     },
     {
