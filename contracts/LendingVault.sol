@@ -36,7 +36,7 @@ contract LendingVault {
     function withdraw(address tokenAddress, uint256 orderNonce) external returns (uint256) {
         erc4626s[ERC20(tokenAddress)].approve(address(erc4626s[ERC20(tokenAddress)]), orderShares[orderNonce]);
         uint256 amount = erc4626s[ERC20(tokenAddress)].redeem(orderShares[orderNonce], address(this), address(this));
-        ERC20(tokenAddress).transfer(orderBookAddress, amount);
+        ERC20(tokenAddress).transfer(OrderBook(orderBookAddress).getExecutorAddress(), amount);
         return amount;
     }
 

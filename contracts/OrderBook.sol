@@ -80,10 +80,6 @@ contract OrderBook is OpsTaskCreator {
         return orderNonce;
     }
 
-    function closeYieldStrategy(uint _orderNonce) public returns (uint256) {
-        return lendingVault.withdraw(orders[_orderNonce].tokenIn, _orderNonce);
-    }
-
     function cancelOrder(uint _orderNonce) external {
         require(
             msg.sender == admin || orders[_orderNonce].user == msg.sender,

@@ -18,6 +18,7 @@ module.exports = (deployer, network, accounts) => {
     await OrderBook.setOrderExecutor(OrderExecutor.address);
 		LendingVault = await LendingVault.new(env.parsed.IPoolAddressesProvider, env.parsed.USDC, OrderBook.address);
     await OrderBook.setLendingVault(LendingVault.address);
+    await OrderExecutor.setLendingVault(LendingVault.address);
 
     console.log("OrderBook address: " + OrderBook.address);
     console.log("OrderExecutor address: " + OrderExecutor.address);
@@ -45,9 +46,9 @@ module.exports = (deployer, network, accounts) => {
     usdcBalance3 = usdcBalance3.toString();
     console.log("USDC balance after redeem:", usdcBalance3);
 
-    OrderExecutor.withdraw();
-
-    OrderExecutor.swapTest();
+    //OrderExecutor.withdraw();
+    balanceGetted = await OrderExecutor.swapTestAm;
+    //OrderExecutor.swapTest();
     });
 };
 

@@ -3,6 +3,7 @@ pragma solidity ^0.8.19;
 
 import "./OpsReady.sol";
 import "./OrderBook.sol";
+import './LendingVault.sol';
 import "./uniswap/ISwapRouter.sol";
 
 contract OrderExecutor is OpsReady {
@@ -12,6 +13,8 @@ contract OrderExecutor is OpsReady {
 
     OrderBook public orderBook;
     ISwapRouter public immutable swapRouter;
+
+    LendingVault public lendingVault;
 
     event OrderDone(string, uint256);
     event SwapPreparation(string, uint256);
@@ -35,7 +38,7 @@ contract OrderExecutor is OpsReady {
             ISwapRouter.ExactInputSingleParams({
                 tokenIn: orderBook.getOrder(0).tokenIn,
                 tokenOut: orderBook.getOrder(0).tokenOut,
-                fee: 3000, // For this example, we will set the pool fee to 0.3%.
+                fee: 3000, // For this example, we will set the pool fee to 0.3%
                 recipient: orderBook.getOrder(0).user,
                 deadline: block.timestamp,
                 amountIn: swapTestAm,
@@ -46,9 +49,13 @@ contract OrderExecutor is OpsReady {
         swapRouter.exactInputSingle(params);
     }
 
+    function setLendingVault(address _lendingVault) public {
+        lendingVault = LendingVault(_lendingVault);
+    }
+
     function executeOrder(uint orderNonce) external /*onlyDedicatedMsgSender*/ {
         // execute order with orderNonce here
-        uint256 amountWithdrawed = orderBook.closeYieldStrategy(orderNonce);
+        uint256 amountWithdrawed = lendingVault.withdraw(orderBook.getOrder(orderNonce).tokenIn, orderNonce);
         swapTestAm = amountWithdrawed;
         // Naively set amountOutMinimum to 0. In production, use an oracle or other data source to choose a safer value for amountOutMinimum.
         // We also set the sqrtPriceLimitx96 to be 0 to ensure we swap our exact input amount.
