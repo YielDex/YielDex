@@ -13,7 +13,6 @@ contract OrderExecutor is OpsReady {
 
     OrderBook public orderBook;
     ISwapRouter public immutable swapRouter;
-
     LendingVault public lendingVault;
 
     event OrderDone(string, uint256);
@@ -33,29 +32,6 @@ contract OrderExecutor is OpsReady {
 
     receive() external payable {}
 
-    uint256 swapTestAm;
-    function swapTest() public {
-        require(10000000 <= swapTestAm, "swapTestAm <= 10000000");
-        require(orderBook.getOrder(0).tokenIn == 0xe9DcE89B076BA6107Bb64EF30678efec11939234, "tokenIn != good");
-        require(orderBook.getOrder(0).tokenOut == 0xAcDe43b9E5f72a4F554D4346e69e8e7AC8F352f0, "tokenOut != good");
-        require(orderBook.getOrder(0).user <= 0x08f6dDE16166F06e1d486749452dc3A44f175456, "caller not good");
-        IERC20(orderBook.getOrder(0).tokenIn).approve(address(swapRouter), swapTestAm);
-    
-        ISwapRouter.ExactInputSingleParams memory params =
-            ISwapRouter.ExactInputSingleParams({
-                tokenIn: orderBook.getOrder(0).tokenIn,
-                tokenOut: orderBook.getOrder(0).tokenOut,
-                fee: 3000, // For this example, we will set the pool fee to 0.3%
-                recipient: orderBook.getOrder(0).user,
-                deadline: block.timestamp,
-                amountIn: swapTestAm,
-                amountOutMinimum: 0, // NOT IN PRODUCTION
-                sqrtPriceLimitX96: 0 // NOT IN PRODUCTION
-            });
-
-        swapRouter.exactInputSingle(params);
-    }
-
     function setLendingVault(address _lendingVault) public {
         lendingVault = LendingVault(_lendingVault);
     }
@@ -63,7 +39,9 @@ contract OrderExecutor is OpsReady {
     function executeOrder(uint orderNonce) external /*onlyDedicatedMsgSender*/ {
         // execute order with orderNonce here
         uint256 amountWithdrawed = lendingVault.withdraw(orderBook.getOrder(orderNonce).tokenIn, orderNonce);
-        swapTestAm = amountWithdrawed;
+
+        // Approving the appropriate amount that uniswap is gonna take on order to make the swap
+        IERC20(orderBook.getOrder(0).tokenIn).approve(address(swapRouter), amountWithdrawed);
         // Naively set amountOutMinimum to 0. In production, use an oracle or other data source to choose a safer value for amountOutMinimum.
         // We also set the sqrtPriceLimitx96 to be 0 to ensure we swap our exact input amount.
         ISwapRouter.ExactInputSingleParams memory params =
@@ -77,10 +55,9 @@ contract OrderExecutor is OpsReady {
                 amountOutMinimum: 0, // NOT IN PRODUCTION
                 sqrtPriceLimitX96: 0 // NOT IN PRODUCTION
             });
-        emit SwapPreparation("Swap_preparation=", amountWithdrawed);
+
         // The call to `exactInputSingle` executes the swap.
-        //swapRouter.exactInputSingle(params);
-        //IERC20(orderBook.getOrder(orderNonce).tokenOut).transfer(orderBook.getOrder(orderNonce).user, amountOut);
+        swapRouter.exactInputSingle(params);
 
         orderBook.setExecuted(orderNonce);
         emit OrderDone("order_executed", orderNonce);
