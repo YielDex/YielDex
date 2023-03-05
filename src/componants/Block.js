@@ -97,7 +97,9 @@ const Block = ({ strategyName, image, score, cryptoLogo, buyAssetState, underlay
             </div>
             {selectedBuyAsset && orderPrice && (
                 <p className="modal-strategyName">
-                    Your order will get yield on {strategyName} waitting {selectedBuyAsset} price go down to {orderPrice} 
+                    Your order will get yield on {strategyName} waitting {
+                    Assets.find((asset) => asset.assetAddress === selectedBuyAsset).assetName
+                    } price go down to {orderPrice} 
                     <img className="modal-logo" src={cryptoLogo} />
                 </p>)
             }
